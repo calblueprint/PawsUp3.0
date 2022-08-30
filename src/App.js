@@ -1,8 +1,18 @@
+/* eslint-disable no-undef */
 import React from 'react';
 import Airtable from 'airtable';
 
 console.log(process.env);
 console.log(process.env.REACT_APP_AIRTABLE_API_KEY);
+
+var values = [
+  'Mission First',
+  'Perpetual Growth',
+  'Cherish Each Other',
+  'Always Innovate',
+  'Be Humble',
+  'No Value'
+];
 
 function App() {
   const base = new Airtable({ apiKey: process.env.REACT_APP_AIRTABLE_API_KEY }).base(
@@ -14,22 +24,20 @@ function App() {
   };
 
   const addPaws = () => {
-    console.log('AYO');
-    base('Paws').create({
-      fields: {
-        UID: '1',
-        Name: 'ace',
-        Reason: 'good',
-        Value: 'Mission First'
+    console.log(document.getElementById('value'));
+    base('Paws').create(
+      {
+        Name: document.getElementById('name').value,
+        Reason: document.getElementById('reason').value,
+        Value: values[document.getElementById('value').value]
       },
-      function(err, record) {
+      function (err) {
         if (err) {
           console.error(err);
           return;
         }
-        console.log(record.getID());
       }
-    });
+    );
   };
 
   const handleSubmit = (event) => {
@@ -47,16 +55,14 @@ function App() {
         <label htmlFor="reason">Reason</label> <br />
         <input type="text" id="reason" name="reason" /> <br />
         <label htmlFor="Value">Value</label> <br />
-        <input type="radio" id="missionfirst" name="Value" value="Mission First" />
-        <label htmlFor="missionfirst">Mission First</label> <br />
-        <input type="radio" id="perpetualgrowth" name="Value" value="Perpetual Growth" />
-        <label htmlFor="perpetualgrowth">Perpetual Growth</label> <br />
-        <input type="radio" id="cherisheachother" name="Value" value="Cherish Each Other" />
-        <label htmlFor="cherisheachother">Cherish Each Other</label> <br />
-        <input type="radio" id="alwaysinnovate" name="Value" value="Always Innovate" />
-        <label htmlFor="alwaysinnovate">Always Innovate</label> <br />
-        <input type="radio" id="behumble" name="Value" value="Be Humble" />
-        <label htmlFor="behumble">Be Humble</label> <br />
+        <select name="value" id="value">
+          <option value="0">Mission First</option>
+          <option value="1">Perpetual Growth</option>
+          <option value="2">Cherish Each Other</option>
+          <option value="3">Always Innovate</option>
+          <option value="4">Be Humble</option>
+        </select>
+        <br />
         <input type="submit" value="Submit"></input>
       </form>
     </div>
