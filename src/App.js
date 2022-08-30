@@ -1,17 +1,20 @@
 import React from 'react';
 import Airtable from 'airtable';
 
-console.log('hey');
 console.log(process.env);
-console.log(process.env.AIRTABLE_API_KEY);
-const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base('appA6kdtWRiappFFs');
+console.log(process.env.REACT_APP_AIRTABLE_API_KEY);
 
 function App() {
+  const base = new Airtable({ apiKey: process.env.REACT_APP_AIRTABLE_API_KEY }).base(
+    process.env.REACT_APP_AIRTABLE_API_BASE
+  );
+
   const sayHello = () => {
     console.log('asjdfklgajwepofkp');
   };
 
   const addPaws = () => {
+    console.log('AYO');
     base('Paws').create({
       fields: {
         UID: '1',
@@ -29,11 +32,16 @@ function App() {
     });
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    addPaws();
+  };
+
   return (
     <div>
       <h1>hello react</h1>
       <button onClick={sayHello}>heyyyy</button>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name</label> <br />
         <input type="text" id="name" name="name" /> <br />
         <label htmlFor="reason">Reason</label> <br />
@@ -49,7 +57,7 @@ function App() {
         <label htmlFor="alwaysinnovate">Always Innovate</label> <br />
         <input type="radio" id="behumble" name="Value" value="Be Humble" />
         <label htmlFor="behumble">Be Humble</label> <br />
-        <input type="submit" value="Submit" onClick={addPaws} />
+        <input type="submit" value="Submit"></input>
       </form>
     </div>
   );
