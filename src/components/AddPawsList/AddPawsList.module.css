@@ -1,0 +1,43 @@
+.container {
+    position: absolute;
+    display: flex;
+    flex-direction: column-reverse;
+    overflow: scroll;
+    height: 100%;
+    width: 90%;
+    margin-left: 10%;
+}
+
+.addButton {
+    margin-top: 20px;
+    width: fit-content;
+    opacity: 80%;
+    cursor: pointer;
+}
+
+.addButton:hover{
+    opacity: 100%;
+}
+
+.add {
+    width: 30px;
+    height: 30px;
+}
+
+.submitButton {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    background: #0078E8;
+    border-radius: 37px;
+    color: white;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  
+  .submitButton:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
