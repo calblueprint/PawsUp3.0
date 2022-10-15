@@ -17,23 +17,47 @@ const AddPawsList = () => {
   const addNewPaw = () => {
     let newList = [...pawsList];
     newList.unshift({
-      id: pawsList.length,
+      id: pawsList[0].id + 1,
       name: '',
       purpose: '',
       value: 'No Value'
     });
+    console.log(newList);
     setPawsList(newList);
   };
 
   const updatePaw = (index, newpaw) => {
-    // let newpawslist = [...pawsList];
-    // newpawslist[pawsList.length - 1 - index] = newpaw;
     const newPaws = pawsList.map((paw) => {
       if (paw.id == index) {
         return { id: paw.id, name: newpaw.name, purpose: newpaw.purpose, value: newpaw.value };
       }
       return paw;
     });
+    setPawsList(newPaws);
+  };
+
+  const deletePaw = (index) => {
+    console.log(pawsList);
+    console.log(index);
+    let foundIndex = index;
+    let newPaws = [...pawsList];
+    for (let i = 0; i < pawsList.length; i++) {
+      if (pawsList[i].id == index) {
+        foundIndex = i;
+      }
+    }
+    // newPaws = pawsList.map((paw, i) => {
+    //   if (paw.id == index) {
+    //     foundIndex = i;
+    //   }
+    //   if (paw.id > index) {
+    //     return { id: paw.id - 1, name: paw.name, purpose: paw.purpose, value: paw.value };
+    //   }
+    //   return paw;
+    // });
+    console.log(newPaws);
+    console.log(foundIndex);
+    newPaws.splice(foundIndex, 1);
     setPawsList(newPaws);
   };
 
@@ -66,8 +90,17 @@ const AddPawsList = () => {
         <div className={styles.addButton} onClick={addNewPaw}>
           <img src={require('../../assets/Icon.png')} className={styles.add}></img>
         </div>
-        {pawsList.map((paw) => {
-          return <AddPaw key={paw.id} paw={paw} updatePaw={updatePaw} updateValue={updateValue} />;
+        {pawsList.map((paw, index) => {
+          return (
+            <AddPaw
+              key={paw.id}
+              paw={paw}
+              indexInList={index}
+              updatePaw={updatePaw}
+              deletePaw={deletePaw}
+              updateValue={updateValue}
+            />
+          );
         })}
         <div style={{ minHeight: '40px' }}></div>
       </div>

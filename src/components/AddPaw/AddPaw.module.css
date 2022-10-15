@@ -1,5 +1,27 @@
 .container {
     margin-top: 90px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.removeBox {
+    width: 50px;
+}
+
+.removeIcon {
+    margin-top: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+.removeIcon:hover {
+    cursor: pointer;
+}
+
+.pawColumn {
+    display: flex;
+    flex-direction: column;
 }
 
 .textLine {
@@ -42,6 +64,18 @@
     min-width: 20px;
 }
 
+.textSelectableChanged {
+    display: inline;
+    font-family: 'Epilogue';
+    font-style: normal;
+    text-decoration: underline;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 49px;
+    color: black;
+    min-width: 20px;
+}
+
 [contenteditable] {
     outline: 0px solid transparent;
 }
@@ -75,6 +109,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px;
+    padding-left: 0px;
     opacity: 0.8;
 }
 
@@ -105,7 +140,8 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 12%
+    margin-left: 10px;
+    width: 20%;
 }
 
 .activeTopMenuOption {
