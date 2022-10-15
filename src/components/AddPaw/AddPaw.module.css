@@ -1,0 +1,205 @@
+.container {
+    margin-top: 90px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.removeBox {
+    width: 50px;
+}
+
+.removeIcon {
+    margin-top: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+.removeIcon:hover {
+    cursor: pointer;
+}
+
+.pawColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.textLine {
+    flex-direction: row;
+}
+
+.text {
+    display: inline;
+    font-family: 'Epilogue';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 49px;
+    color: #444444;
+}
+
+.input {
+    border: none;
+    outline: none;
+    display: inline;
+    font-family: 'Epilogue';
+    font-style: normal;
+    text-decoration: underline;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 49px;
+    color: #A5A5A5;
+    width: fit-content;
+}
+
+.textSelectable {
+    display: inline;
+    font-family: 'Epilogue';
+    font-style: normal;
+    text-decoration: underline;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 49px;
+    color: #A5A5A5;
+    min-width: 20px;
+}
+
+.textSelectableChanged {
+    display: inline;
+    font-family: 'Epilogue';
+    font-style: normal;
+    text-decoration: underline;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 49px;
+    color: black;
+    min-width: 20px;
+}
+
+[contenteditable] {
+    outline: 0px solid transparent;
+}
+
+.dropdown {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.addPaw {
+    margin-top: 20px;
+}
+
+.menu {
+    margin-top: 20px;
+}
+
+.menuButton {
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    padding-left: 0px;
+    opacity: 0.8;
+}
+
+.menuButton:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.caret {
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+}
+
+.menuButtonText {
+    display: inline;
+    font-family: 'Epilogue';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 20px;
+    color: #444444;
+}
+
+.menuList {
+    border: 1px solid #A5A5A5;
+    filter: drop-shadow(2px 2px 6px rgba(165, 165, 165, 0.5));
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 10px;
+    width: 20%;
+}
+
+.activeTopMenuOption {
+    width: 100%;
+    background-color: #A5A5A5;
+    border: none;
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.activeTopMenuOption:hover {
+    cursor: pointer;
+}
+
+.activeMenuOption {
+    width: 100%;
+    background-color: #A5A5A5;
+    border: none;
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.activeMenuOption:hover {
+    cursor: pointer;
+}
+
+.activeBottomMenuOption {
+    width: 100%;
+    background-color: #A5A5A5;
+    border: none;
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.activeBottomMenuOption:hover {
+    cursor: pointer;
+}
+
+.menuOption {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.menuOptionText {
+    font-family: 'Proxima Nova';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    color: #444444;
+}
