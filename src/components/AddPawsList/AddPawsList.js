@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AddPaw from '../AddPaw/AddPaw';
+import { useNavigate } from 'react-router-dom';
+import SyncLoader from 'react-spinners/SyncLoader';
 
 import styles from './AddPawsList.module.css';
-import { submitPaws } from '../../utils/api';
+import pawStyles from '../AddPaw/AddPaw.module.css';
+import { getPaws, submitPaws } from '../../utils/api';
 
 const AddPawsList = () => {
+  const navigate = useNavigate();
   const [pawsList, setPawsList] = useState([
     {
       id: 0,
@@ -13,6 +17,16 @@ const AddPawsList = () => {
       value: 'No Value'
     }
   ]);
+  const [pawsNum, setPawsNum] = useState(0);
+  const [canSubmit, setCanSubmit] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    getPaws().then((paws) => {
+      setPawsNum(paws.length);
+      setLoading(false);
+    });
+  }, []);
 
   const addNewPaw = () => {
     let newList = [...pawsList];
@@ -22,23 +36,44 @@ const AddPawsList = () => {
       purpose: '',
       value: 'No Value'
     });
-    console.log(newList);
     setPawsList(newList);
   };
 
-  const updatePaw = (index, newpaw) => {
+  const updateName = (index, newName) => {
     const newPaws = pawsList.map((paw) => {
       if (paw.id == index) {
-        return { id: paw.id, name: newpaw.name, purpose: newpaw.purpose, value: newpaw.value };
+        return { id: paw.id, name: newName, purpose: paw.purpose, value: paw.value };
       }
       return paw;
     });
+    setCanSubmit(true);
     setPawsList(newPaws);
   };
 
+  const updateMessage = (index, newMessage) => {
+    const newPaws = pawsList.map((paw) => {
+      if (paw.id == index) {
+        return { id: paw.id, name: paw.name, purpose: newMessage, value: paw.value };
+      }
+      return paw;
+    });
+    setCanSubmit(true);
+    setPawsList(newPaws);
+  };
+
+  // const updatePaw = (index, newpaw) => {
+  //   console.log(pawsList);
+  //   const newPaws = pawsList.map((paw) => {
+  //     console.log(paw);
+  //     if (paw.id == index) {
+  //       return { id: paw.id, name: newpaw.name, purpose: newpaw.purpose, value: newpaw.value };
+  //     }
+  //     return paw;
+  //   });
+  //   console.log(newPaws);
+  // };
+
   const deletePaw = (index) => {
-    console.log(pawsList);
-    console.log(index);
     let foundIndex = index;
     let newPaws = [...pawsList];
     for (let i = 0; i < pawsList.length; i++) {
@@ -46,17 +81,6 @@ const AddPawsList = () => {
         foundIndex = i;
       }
     }
-    // newPaws = pawsList.map((paw, i) => {
-    //   if (paw.id == index) {
-    //     foundIndex = i;
-    //   }
-    //   if (paw.id > index) {
-    //     return { id: paw.id - 1, name: paw.name, purpose: paw.purpose, value: paw.value };
-    //   }
-    //   return paw;
-    // });
-    console.log(newPaws);
-    console.log(foundIndex);
     newPaws.splice(foundIndex, 1);
     setPawsList(newPaws);
   };
@@ -72,19 +96,38 @@ const AddPawsList = () => {
   };
 
   const submit = () => {
-    submitPaws(pawsList);
-    setPawsList([
-      {
-        id: 0,
-        name: '',
-        purpose: '',
-        value: 'No Value'
-      }
-    ]);
+    if (canSubmit) {
+      submitPaws(pawsList);
+      setPawsList([
+        {
+          id: 0,
+          name: '',
+          purpose: '',
+          value: 'No Value'
+        }
+      ]);
+      var editableName = document.getElementById(`name0`);
+      editableName.value = 'Jacob';
+      editableName.style.width = editableName.value.length + 'ch';
+      editableName.className = pawStyles.editedInput;
+      var editableMessage = document.getElementById(`message0`);
+      editableMessage.value = 'doing shit';
+      editableMessage.style.width = editableMessage.value.length + 'ch';
+      editableMessage.className = pawStyles.editedInput;
+      setCanSubmit(false);
+    }
   };
+
+  if (loading) {
+    return <SyncLoader color="#0078E8" />;
+  }
 
   return (
     <>
+      <div className={styles.numPawsRow}>
+        <img className={styles.paw} src={require('../../assets/paw.png')}></img>
+        <div className={styles.numPaws}>{pawsNum}</div>
+      </div>
       <div className={styles.container}>
         <div style={{ minHeight: '40%' }}></div>
         <div className={styles.addButton} onClick={addNewPaw}>
@@ -95,8 +138,12 @@ const AddPawsList = () => {
             <AddPaw
               key={paw.id}
               paw={paw}
+              currentName={paw.name}
+              currentMessage={paw.purpose}
+              currentValue={paw.value}
               indexInList={index}
-              updatePaw={updatePaw}
+              updateName={updateName}
+              updateMessage={updateMessage}
               deletePaw={deletePaw}
               updateValue={updateValue}
             />
@@ -104,9 +151,18 @@ const AddPawsList = () => {
         })}
         <div style={{ minHeight: '40px' }}></div>
       </div>
-      <div className={styles.submitButton} id="submit" onClick={submit}>
+      <button
+        className={styles.submitButton}
+        id="submit"
+        disabled={!canSubmit}
+        onClick={() => {
+          navigate('/submitted', {
+            state: { numPaws: pawsList.length, totalPaws: pawsNum + pawsList.length }
+          }),
+            submit();
+        }}>
         Submit {pawsList.length} Paw{pawsList.length > 1 && 's'}
-      </div>
+      </button>
     </>
   );
 };

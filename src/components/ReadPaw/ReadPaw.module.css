@@ -1,0 +1,48 @@
+.container {
+    /* margin-top: 90px; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.pawColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.textLine {
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.text {
+    display: inline;
+    font-family: 'Cousine', monospace;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 49px;
+    color: #444444;
+}
+
+.valueRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.value {
+    display: inline;
+    font-family: 'Epilogue';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 49px;
+    color: #444444;
+}
+
+.icon {
+    height: 40px;
+    margin-left: 15px;
+}

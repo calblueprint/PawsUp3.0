@@ -4,9 +4,7 @@ import styles from './AddPaw.module.css';
 import { Menu, Transition } from '@headlessui/react';
 
 const AddPaw = (props) => {
-  const { paw, indexInList, updatePaw, deletePaw, updateValue } = props;
-  const [blooper] = useState(paw.name);
-  const [pawMessage] = useState(paw.purpose);
+  const { paw, indexInList, updateName, updateMessage, deletePaw, updateValue } = props;
   const [value, setValue] = useState(paw.value);
   const [nameChanged, setNameChanged] = useState(false);
   const [messageChanged, setMessageChanged] = useState(false);
@@ -14,25 +12,23 @@ const AddPaw = (props) => {
   // randomize these default messages
 
   useEffect(() => {
-    var editableName = document.getElementById('name');
-    var editableMessage = document.getElementById('message');
-    var pawHover = document.getElementById(paw.id);
+    var editableName = document.getElementById(`name${paw.id}`);
+    editableName.value = 'Jacob';
+    editableName.style.width = editableName.value.length + 'ch';
+
+    var editableMessage = document.getElementById(`message${paw.id}`);
+    editableMessage.value = 'doing shit';
+    editableMessage.style.width = editableMessage.value.length + 'ch';
+
     editableName.addEventListener('input', function () {
       setNameChanged(true);
-      updatePaw(paw.id, {
-        name: editableName.textContent,
-        purpose: editableMessage.textContent,
-        value: value
-      });
+      this.style.width = this.value.length + 'ch';
     });
     editableMessage.addEventListener('input', function () {
       setMessageChanged(true);
-      updatePaw(paw.id, {
-        name: editableName.textContent,
-        purpose: editableMessage.textContent,
-        value: value
-      });
+      this.style.width = this.value.length + 'ch';
     });
+    var pawHover = document.getElementById(paw.id);
     pawHover.addEventListener('mouseover', function () {
       setHovering(true);
     });
@@ -40,6 +36,23 @@ const AddPaw = (props) => {
       setHovering(false);
     });
   }, []);
+
+  const renderIcon = () => {
+    switch (value) {
+      case 'Mission First':
+        return <img className={styles.icon} src={require('../../assets/mission-first.png')} />;
+      case 'Perpetual Growth':
+        return <img className={styles.icon} src={require('../../assets/perpetual-growth.png')} />;
+      case 'Cherish Each Other':
+        return <img className={styles.icon} src={require('../../assets/cherish-each-other.png')} />;
+      case 'Always Innovate':
+        return <img className={styles.icon} src={require('../../assets/always-innovate.png')} />;
+      case 'Be Humble':
+        return <img className={styles.icon} src={require('../../assets/be-humble.png')} />;
+      case 'No Value':
+        return <img className={styles.icon} src={require('../../assets/no-value.png')} />;
+    }
+  };
 
   return (
     <div className={styles.container} id={paw.id}>
@@ -54,25 +67,22 @@ const AddPaw = (props) => {
       <div className={styles.pawColumn}>
         <div className={styles.textLine}>
           <div className={styles.text}>Paws up to </div>
-          <div
-            className={nameChanged ? styles.textSelectableChanged : styles.textSelectable}
-            id="name"
-            contentEditable>
-            {blooper == '' ? 'Grace' : blooper}
-          </div>
+          <input
+            className={nameChanged ? styles.input : styles.editedInput}
+            id={`name${paw.id}`}
+            onChange={(e) => updateName(paw.id, e.target.value)}></input>
           <div className={styles.text}> for </div>
-          <div
-            className={messageChanged ? styles.textSelectableChanged : styles.textSelectable}
-            id="message"
-            contentEditable>
-            {pawMessage == '' ? 'for creating this concept!' : pawMessage}
-          </div>
+          <input
+            className={messageChanged ? styles.input : styles.editedInput}
+            id={`message${paw.id}`}
+            onChange={(e) => updateMessage(paw.id, e.target.value)}></input>
         </div>
         <Menu as="div" className={styles.menu}>
           <div>
             <Menu.Button className={styles.menuButton}>
               <img className={styles.caret} src={require('../../assets/caret.png')} />
               <div className={styles.menuButtonText}>{value}</div>
+              {renderIcon()}
             </Menu.Button>
           </div>
           <Transition
@@ -87,7 +97,7 @@ const AddPaw = (props) => {
               <Menu.Item>
                 {({ active }) => (
                   <button
-                    className={active ? styles.activeTopMenuOption : styles.menuOption}
+                    className={active ? styles.activeTopMenuOption : styles.topMenuOption}
                     onClick={() => {
                       setValue('Mission First'), updateValue(paw.id, 'Mission First');
                     }}>
@@ -131,7 +141,7 @@ const AddPaw = (props) => {
               <Menu.Item>
                 {({ active }) => (
                   <button
-                    className={active ? styles.activeBottomMenuOption : styles.menuOption}
+                    className={active ? styles.activeBottomMenuOption : styles.bottomMenuOption}
                     onClick={() => {
                       setValue('Be Humble'), updateValue(paw.id, 'Be Humble');
                     }}>
@@ -150,7 +160,8 @@ const AddPaw = (props) => {
 AddPaw.propTypes = {
   paw: PropTypes.object,
   indexInList: PropTypes.number,
-  updatePaw: PropTypes.func,
+  updateName: PropTypes.func,
+  updateMessage: PropTypes.func,
   deletePaw: PropTypes.func,
   updateValue: PropTypes.func
 };

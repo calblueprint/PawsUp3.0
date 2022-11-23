@@ -22,15 +22,48 @@
 .pawColumn {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .textLine {
     flex-direction: row;
+    width: 80%;
+}
+
+.input {
+    border: none;
+    outline: none;
+    font-size: 48px;
+    font-family: 'Cousine', monospace;
+    font-style: normal;
+    font-weight: 500;
+    color: #444444;
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+}
+
+.editedInput {
+    border: none;
+    outline: none;
+    font-size: 48px;
+    font-family: 'Cousine', monospace;
+    font-style: normal;
+    font-weight: 500;
+    color: #A5A5A5;
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+    transition: 0.25s;
+}
+
+.editedInput:hover {
+    color: #444444;
+    transform: translate(0, -4px);
+    transition: 0.25s;
 }
 
 .text {
     display: inline;
-    font-family: 'Epilogue';
+    font-family: 'Cousine', monospace;
     font-style: normal;
     font-weight: 500;
     font-size: 48px;
@@ -38,40 +71,24 @@
     color: #444444;
 }
 
-.input {
-    border: none;
-    outline: none;
-    display: inline;
-    font-family: 'Epilogue';
-    font-style: normal;
-    text-decoration: underline;
-    font-weight: 500;
-    font-size: 48px;
-    line-height: 49px;
-    color: #A5A5A5;
-    width: fit-content;
-}
-
 .textSelectable {
     display: inline;
-    font-family: 'Epilogue';
+    font-family: 'Cousine', monospace;
     font-style: normal;
     text-decoration: underline;
     font-weight: 500;
     font-size: 48px;
-    line-height: 49px;
     color: #A5A5A5;
     min-width: 20px;
 }
 
 .textSelectableChanged {
     display: inline;
-    font-family: 'Epilogue';
+    font-family: 'Cousine', monospace;
     font-style: normal;
     text-decoration: underline;
     font-weight: 500;
     font-size: 48px;
-    line-height: 49px;
     color: black;
     min-width: 20px;
 }
@@ -111,10 +128,13 @@
     padding: 10px;
     padding-left: 0px;
     opacity: 0.8;
+    transition: 0.25s;
 }
 
 .menuButton:hover {
     opacity: 1;
+    transform: translate(5px, 0);
+    transition: 0.25s;
     cursor: pointer;
 }
 
@@ -126,18 +146,23 @@
 
 .menuButtonText {
     display: inline;
-    font-family: 'Epilogue';
+    font-family: 'Proxima Nova';
     font-style: normal;
     font-weight: 200;
-    font-size: 20px;
+    font-size: 24px;
     color: #444444;
 }
 
+.icon {
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
+}
+
 .menuList {
-    border: 1px solid #A5A5A5;
-    filter: drop-shadow(2px 2px 6px rgba(165, 165, 165, 0.5));
-    border-radius: 12px;
+    position: absolute;
     display: flex;
+    filter: drop-shadow(2px 2px 6px rgba(165, 165, 165, 0.5));
     flex-direction: column;
     align-items: flex-start;
     margin-left: 10px;
@@ -148,14 +173,19 @@
     width: 100%;
     background-color: #A5A5A5;
     border: none;
+    border-top: 1px solid #A5A5A5;
+    border-left: 1px solid #A5A5A5;
     text-align: left;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-}
-
-.activeTopMenuOption:hover {
+    font-family: 'Proxima Nova';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 16px;
+    color: #444444;
     cursor: pointer;
 }
 
@@ -163,12 +193,16 @@
     width: 100%;
     background-color: #A5A5A5;
     border: none;
+    border-left: 1px solid #A5A5A5;
     text-align: left;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-.activeMenuOption:hover {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 10px;
+    font-family: 'Proxima Nova';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 16px;
+    color: #444444;
     cursor: pointer;
 }
 
@@ -176,30 +210,74 @@
     width: 100%;
     background-color: #A5A5A5;
     border: none;
+    border-left: 1px solid #A5A5A5;
     text-align: left;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    font-family: 'Proxima Nova';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 16px;
+    color: #444444;
+    cursor: pointer;
 }
 
-.activeBottomMenuOption:hover {
-    cursor: pointer;
+.topMenuOption{
+    width: 100%;
+    background: white;
+    border: none;
+    border-top: 1px solid #A5A5A5;
+    border-left: 1px solid #A5A5A5;
+    border-right: 1px solid #A5A5A5;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    text-align: left;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 10px;
+    font-family: 'Proxima Nova';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 16px;
+    color: #444444;
+}
+
+.bottomMenuOption {
+    width: 100%;
+    background: white;
+    border: none;
+    border-bottom: 1px solid #A5A5A5;
+    border-left: 1px solid #A5A5A5;
+    border-right: 1px solid #A5A5A5;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    text-align: left;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 10px;
+    font-family: 'Proxima Nova';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 16px;
+    color: #444444;
 }
 
 .menuOption {
     width: 100%;
-    background: none;
+    background: white;
     border: none;
+    border-right: 1px solid #A5A5A5;
+    border-left: 1px solid #A5A5A5;
     text-align: left;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-.menuOptionText {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 10px;
     font-family: 'Proxima Nova';
     font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
+    font-weight: 200;
+    font-size: 16px;
     color: #444444;
 }

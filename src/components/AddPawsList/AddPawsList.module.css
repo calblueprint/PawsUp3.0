@@ -8,6 +8,33 @@
     margin-left: 10%;
 }
 
+.numPawsRow {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.paw {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.numPaws {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 49px;
+    color: #A5A5A5;
+}
+
 .addButton {
     margin-top: 20px;
     margin-left: 50px;
@@ -27,18 +54,38 @@
 
 .submitButton {
     position: absolute;
-    bottom: 40px;
-    right: 40px;
+    bottom: 50px;
+    right: 60px;
     background: #0078E8;
     border-radius: 37px;
     color: white;
-    padding-bottom: 20px;
-    padding-top: 20px;
-    padding-left: 40px;
-    padding-right: 40px;
-  }
+    padding-bottom: 15px;
+    padding-top: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border: none;
+    text-decoration-line: none;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    transition: 0.5s;
+}
   
-  .submitButton:hover {
+.submitButton:hover {
     opacity: 0.8;
     cursor: pointer;
-  }
+    transform: translate(0, -4px);
+    transition: 0.5s;
+}
+
+
+.submitButton:disabled {
+    background-color: #A5A5A5;
+    cursor: default;
+    opacity: 1;
+}
+
+.submitButton:hover:disabled {
+    transform: none;
+}
