@@ -57,8 +57,10 @@ const ReadPawsList = () => {
   if (pawsList.length == 0) {
     return (
       <div className={styles.screen}>
-        no paws rn
-        <div onClick={() => navigate('/')}>Submit More</div>
+        <div className={styles.text}>{"no paws rn :("}</div>
+        <button className={styles.fill} onClick={() => navigate('/')}>
+          Submit More
+        </button>
       </div>
     );
   }
