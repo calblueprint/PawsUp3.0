@@ -2,6 +2,7 @@ import React, { useState, Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styles from './AddPaw.module.css';
 import { Menu, Transition } from '@headlessui/react';
+import { getRandomPlaceholder } from '../../utils/placeholder';
 
 const AddPaw = (props) => {
   const { paw, indexInList, updateName, updateMessage, deletePaw, updateValue } = props;
@@ -12,12 +13,14 @@ const AddPaw = (props) => {
   // randomize these default messages
 
   useEffect(() => {
+    const placeholder = getRandomPlaceholder();
+
     var editableName = document.getElementById(`name${paw.id}`);
-    editableName.value = 'Jacob';
+    editableName.value = placeholder.name;
     editableName.style.width = editableName.value.length + 'ch';
 
     var editableMessage = document.getElementById(`message${paw.id}`);
-    editableMessage.value = 'doing shit';
+    editableMessage.value = placeholder.purpose;
     editableMessage.style.width = editableMessage.value.length + 'ch';
 
     editableName.addEventListener('input', function () {
