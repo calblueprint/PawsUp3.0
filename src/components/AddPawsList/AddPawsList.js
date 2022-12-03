@@ -133,7 +133,7 @@ const AddPawsList = () => {
         <div className={styles.addButton} onClick={addNewPaw}>
           <img src={require('../../assets/Icon.png')} className={styles.add}></img>
         </div>
-        {pawsList.map((paw, index) => {
+        {pawsList.map((paw) => {
           return (
             <AddPaw
               key={paw.id}
@@ -141,7 +141,7 @@ const AddPawsList = () => {
               currentName={paw.name}
               currentMessage={paw.purpose}
               currentValue={paw.value}
-              indexInList={index}
+              listLength={pawsList.length}
               updateName={updateName}
               updateMessage={updateMessage}
               deletePaw={deletePaw}

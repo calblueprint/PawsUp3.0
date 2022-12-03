@@ -5,7 +5,7 @@ import { Menu, Transition } from '@headlessui/react';
 import { getRandomPlaceholder } from '../../utils/placeholder';
 
 const AddPaw = (props) => {
-  const { paw, indexInList, updateName, updateMessage, deletePaw, updateValue } = props;
+  const { paw, listLength, updateName, updateMessage, deletePaw, updateValue } = props;
   const [value, setValue] = useState(paw.value);
   const [nameChanged, setNameChanged] = useState(false);
   const [messageChanged, setMessageChanged] = useState(false);
@@ -60,7 +60,7 @@ const AddPaw = (props) => {
   return (
     <div className={styles.container} id={paw.id}>
       <div className={styles.removeBox}>
-        {hovering && indexInList != 0 && (
+        {hovering && listLength != 1 && (
           <img
             src={require('../../assets/remove.png')}
             className={styles.removeIcon}
@@ -162,7 +162,7 @@ const AddPaw = (props) => {
 
 AddPaw.propTypes = {
   paw: PropTypes.object,
-  indexInList: PropTypes.number,
+  listLength: PropTypes.number,
   updateName: PropTypes.func,
   updateMessage: PropTypes.func,
   deletePaw: PropTypes.func,
