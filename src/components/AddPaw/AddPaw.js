@@ -5,7 +5,7 @@ import { Menu, Transition } from '@headlessui/react';
 import { getRandomPlaceholder } from '../../utils/placeholder';
 
 const AddPaw = (props) => {
-  const { paw, listLength, updateName, updateMessage, deletePaw, updateValue } = props;
+  const { paw, listLength, updateName, updateMessage, deletePaw, updateValue, isMobile } = props;
   const [value, setValue] = useState(paw.value);
   const [nameChanged, setNameChanged] = useState(false);
   const [messageChanged, setMessageChanged] = useState(false);
@@ -43,17 +43,17 @@ const AddPaw = (props) => {
   const renderIcon = () => {
     switch (value) {
       case 'Mission First':
-        return <img className={styles.icon} src={require('../../assets/mission-first.png')} />;
+        return <img className={isMobile ? styles.mobileIcon : styles.icon} src={require('../../assets/mission-first.png')} />;
       case 'Perpetual Growth':
-        return <img className={styles.icon} src={require('../../assets/perpetual-growth.png')} />;
+        return <img className={isMobile ? styles.mobileIcon : styles.icon} src={require('../../assets/perpetual-growth.png')} />;
       case 'Cherish Each Other':
-        return <img className={styles.icon} src={require('../../assets/cherish-each-other.png')} />;
+        return <img className={isMobile ? styles.mobileIcon : styles.icon} src={require('../../assets/cherish-each-other.png')} />;
       case 'Always Innovate':
-        return <img className={styles.icon} src={require('../../assets/always-innovate.png')} />;
+        return <img className={isMobile ? styles.mobileIcon : styles.icon} src={require('../../assets/always-innovate.png')} />;
       case 'Be Humble':
-        return <img className={styles.icon} src={require('../../assets/be-humble.png')} />;
+        return <img className={isMobile ? styles.mobileIcon : styles.icon} src={require('../../assets/be-humble.png')} />;
       case 'No Value':
-        return <img className={styles.icon} src={require('../../assets/no-value.png')} />;
+        return <img className={isMobile ? styles.mobileIcon : styles.icon} src={require('../../assets/no-value.png')} />;
     }
   };
 
@@ -69,22 +69,26 @@ const AddPaw = (props) => {
       </div>
       <div className={styles.pawColumn}>
         <div className={styles.textLine}>
-          <div className={styles.text}>Paws up to </div>
+          <div className={isMobile ? styles.mobileText : styles.text}>Paws up to </div>
           <input
-            className={nameChanged ? styles.input : styles.editedInput}
+            className={isMobile ? (nameChanged ? styles.mobileInput : styles.mobileEditedInput) : 
+              (nameChanged ? styles.input : styles.editedInput)}
             id={`name${paw.id}`}
-            onChange={(e) => updateName(paw.id, e.target.value)}></input>
-          <div className={styles.text}> for </div>
+            onChange={(e) => updateName(paw.id, e.target.value)}
+            onClick={() => console.log("click name")}></input>
+          <div className={isMobile ? styles.mobileText : styles.text}> for </div>
           <input
-            className={messageChanged ? styles.input : styles.editedInput}
+            className={isMobile ? (messageChanged ? styles.mobileInput : styles.mobileEditedInput) : 
+              (messageChanged ? styles.input : styles.editedInput)}
             id={`message${paw.id}`}
-            onChange={(e) => updateMessage(paw.id, e.target.value)}></input>
+            onChange={(e) => updateMessage(paw.id, e.target.value)}
+            onClick={() => console.log("click message")}></input>
         </div>
         <Menu as="div" className={styles.menu}>
           <div>
             <Menu.Button className={styles.menuButton}>
               <img className={styles.caret} src={require('../../assets/caret.png')} />
-              <div className={styles.menuButtonText}>{value}</div>
+              <div className={isMobile ? styles.mobileMenuButtonText : styles.menuButtonText}>{value}</div>
               {renderIcon()}
             </Menu.Button>
           </div>
@@ -96,7 +100,7 @@ const AddPaw = (props) => {
             leave="transition ease-in duration-75"
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95">
-            <Menu.Items className={styles.menuList}>
+            <Menu.Items className={isMobile ? styles.mobileMenuList : styles.menuList}>
               <Menu.Item>
                 {({ active }) => (
                   <button
@@ -166,7 +170,8 @@ AddPaw.propTypes = {
   updateName: PropTypes.func,
   updateMessage: PropTypes.func,
   deletePaw: PropTypes.func,
-  updateValue: PropTypes.func
+  updateValue: PropTypes.func,
+  isMobile: PropTypes.bool
 };
 
 export default AddPaw;
