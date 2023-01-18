@@ -6,12 +6,12 @@ import SyncLoader from 'react-spinners/SyncLoader';
 import styles from './AddPawsList.module.css';
 import pawStyles from '../AddPaw/AddPaw.module.css';
 import { getPaws, submitPaws } from '../../utils/api';
-import {isMobile} from 'react-device-detect';
 
 const AddPawsList = () => {
   const navigate = useNavigate();
-  // const [width] = useState(window.innerWidth);
-  // const isMobile = width <= 768;
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+  const isMobile = height/width >= 1
   const [pawsList, setPawsList] = useState([
     {
       id: 0,
