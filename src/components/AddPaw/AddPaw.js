@@ -59,11 +59,11 @@ const AddPaw = (props) => {
 
   return (
     <div className={styles.container} id={paw.id}>
-      <div className={styles.removeBox}>
+      <div className={isMobile ? styles.mobileRemoveBox : styles.removeBox}>
         {hovering && listLength != 1 && (
           <img
             src={require('../../assets/remove.png')}
-            className={styles.removeIcon}
+            className={isMobile ? styles.mobileRemoveIcon : styles.removeIcon}
             onClick={() => deletePaw(paw.id)}></img>
         )}
       </div>

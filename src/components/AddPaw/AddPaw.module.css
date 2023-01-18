@@ -5,8 +5,22 @@
     align-items: flex-start;
 }
 
+.mobileRemoveBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+}
+
 .removeBox {
     width: 50px;
+}
+
+.mobileRemoveIcon {
+    margin-top: 5px;
+    margin-right: 5px;
+    width: 25px;
+    height: 25px;
 }
 
 .removeIcon {

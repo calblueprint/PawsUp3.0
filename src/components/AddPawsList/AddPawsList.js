@@ -132,7 +132,7 @@ const AddPawsList = () => {
       </div>
       <div className={isMobile ? styles.mobileContainer : styles.container}>
         <div style={{ minHeight: '40%' }}></div>
-        <div className={styles.addButton} onClick={addNewPaw}>
+        <div className={isMobile ? styles.mobileAddButton : styles.addButton} onClick={addNewPaw}>
           <img src={require('../../assets/Icon.png')} className={styles.add}></img>
         </div>
         {pawsList.map((paw) => {

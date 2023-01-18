@@ -72,6 +72,18 @@
     color: #A5A5A5;
 }
 
+.mobileAddButton {
+    margin-top: 20px;
+    margin-left: 20px;
+    width: fit-content;
+    opacity: 80%;
+    cursor: pointer;
+}
+
+.mobileAddButton:hover {
+    opacity: 100%;
+}
+
 .addButton {
     margin-top: 20px;
     margin-left: 50px;
