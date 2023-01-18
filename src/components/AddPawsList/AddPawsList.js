@@ -9,6 +9,8 @@ import { getPaws, submitPaws } from '../../utils/api';
 
 const AddPawsList = () => {
   const navigate = useNavigate();
+  const [width] = useState(window.innerWidth);
+  const isMobile = width <= 768;
   const [pawsList, setPawsList] = useState([
     {
       id: 0,
@@ -124,13 +126,13 @@ const AddPawsList = () => {
 
   return (
     <>
-      <div className={styles.numPawsRow}>
-        <img className={styles.paw} src={require('../../assets/paw.png')}></img>
-        <div className={styles.numPaws}>{pawsNum}</div>
+      <div className={isMobile ? styles.mobileNumPawsRow : styles.numPawsRow}>
+        <img className={isMobile ? styles.mobilePaw : styles.paw} src={require('../../assets/paw.png')}></img>
+        <div className={isMobile ? styles.mobileNumPaws : styles.numPaws}>{pawsNum}</div>
       </div>
-      <div className={styles.container}>
+      <div className={isMobile ? styles.mobileContainer : styles.container}>
         <div style={{ minHeight: '40%' }}></div>
-        <div className={styles.addButton} onClick={addNewPaw}>
+        <div className={isMobile ? styles.mobileAddButton : styles.addButton} onClick={addNewPaw}>
           <img src={require('../../assets/Icon.png')} className={styles.add}></img>
         </div>
         {pawsList.map((paw) => {
@@ -146,13 +148,14 @@ const AddPawsList = () => {
               updateMessage={updateMessage}
               deletePaw={deletePaw}
               updateValue={updateValue}
+              isMobile={isMobile}
             />
           );
         })}
         <div style={{ minHeight: '40px' }}></div>
       </div>
       <button
-        className={styles.submitButton}
+        className={isMobile ? styles.mobileSubmitButton : styles.submitButton}
         id="submit"
         disabled={!canSubmit}
         onClick={() => {

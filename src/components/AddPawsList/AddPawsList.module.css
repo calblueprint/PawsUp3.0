@@ -1,3 +1,13 @@
+.mobileContainer {
+    position: absolute;
+    display: flex;
+    flex-direction: column-reverse;
+    overflow: scroll;
+    height: 100%;
+    width: 95%;
+    margin-left: 5%;
+}
+
 .container {
     position: absolute;
     display: flex;
@@ -6,6 +16,15 @@
     height: 100%;
     width: 90%;
     margin-left: 10%;
+}
+
+.mobileNumPawsRow {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .numPawsRow {
@@ -17,10 +36,28 @@
     align-items: center;
 }
 
+.mobilePaw {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+
 .paw {
     width: 40px;
     height: 40px;
     margin-right: 10px;
+}
+
+.mobileNumPaws {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 49px;
+    color: #A5A5A5;
 }
 
 .numPaws {
@@ -33,6 +70,18 @@
     font-size: 48px;
     line-height: 49px;
     color: #A5A5A5;
+}
+
+.mobileAddButton {
+    margin-top: 20px;
+    margin-left: 20px;
+    width: fit-content;
+    opacity: 80%;
+    cursor: pointer;
+}
+
+.mobileAddButton:hover {
+    opacity: 100%;
 }
 
 .addButton {
@@ -50,6 +99,26 @@
 .add {
     width: 30px;
     height: 30px;
+}
+
+.mobileSubmitButton {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: #0078E8;
+    border-radius: 37px;
+    color: white;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: none;
+    text-decoration-line: none;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    transition: 0.5s;
 }
 
 .submitButton {

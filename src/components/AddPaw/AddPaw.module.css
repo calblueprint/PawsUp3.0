@@ -5,8 +5,22 @@
     align-items: flex-start;
 }
 
+.mobileRemoveBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+}
+
 .removeBox {
     width: 50px;
+}
+
+.mobileRemoveIcon {
+    margin-top: 5px;
+    margin-right: 5px;
+    width: 25px;
+    height: 25px;
 }
 
 .removeIcon {
@@ -28,6 +42,31 @@
 .textLine {
     flex-direction: row;
     width: 80%;
+}
+
+.mobileInput {
+    border: none;
+    outline: none;
+    font-size: 24px;
+    font-family: 'Cousine', monospace;
+    font-style: normal;
+    font-weight: 500;
+    color: #444444;
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+}
+
+.mobileEditedInput {
+    border: none;
+    outline: none;
+    font-size: 24px;
+    font-family: 'Cousine', monospace;
+    font-style: normal;
+    font-weight: 500;
+    color: #A5A5A5;
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+    transition: 0.25s;
 }
 
 .input {
@@ -59,6 +98,16 @@
     color: #444444;
     transform: translate(0, -4px);
     transition: 0.25s;
+}
+
+.mobileText {
+    display: inline;
+    font-family: 'Cousine', monospace;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 37px;
+    color: #444444;
 }
 
 .text {
@@ -144,6 +193,15 @@
     margin-right: 10px;
 }
 
+.mobileMenuButtonText {
+    display: inline;
+    font-family: 'Proxima Nova';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 18px;
+    color: #444444;
+}
+
 .menuButtonText {
     display: inline;
     font-family: 'Proxima Nova';
@@ -153,10 +211,26 @@
     color: #444444;
 }
 
+.mobileIcon {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+}
+
 .icon {
     width: 25px;
     height: 25px;
     margin-left: 10px;
+}
+
+.mobileMenuList {
+    position: absolute;
+    display: flex;
+    filter: drop-shadow(2px 2px 6px rgba(165, 165, 165, 0.5));
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 10px;
+    width: 50%;
 }
 
 .menuList {
