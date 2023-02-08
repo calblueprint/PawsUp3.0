@@ -25,11 +25,11 @@ const AddPaw = (props) => {
 
     editableName.addEventListener('input', function () {
       setNameChanged(true);
-      this.style.width = this.value.length + 'ch';
+      this.style.width = this.value.length === 0 ? '2ch' : this.value.length + 'ch';
     });
     editableMessage.addEventListener('input', function () {
       setMessageChanged(true);
-      this.style.width = this.value.length + 'ch';
+      this.style.width = this.value.length === 0 ? '2ch' : this.value.length + 'ch';
     });
     var pawHover = document.getElementById(paw.id);
     pawHover.addEventListener('mouseover', function () {
@@ -43,17 +43,47 @@ const AddPaw = (props) => {
   const renderIcon = () => {
     switch (value) {
       case 'Mission First':
-        return <img className={isMobile ? styles.mobileIcon : styles.icon} src={require('../../assets/mission-first.png')} />;
+        return (
+          <img
+            className={isMobile ? styles.mobileIcon : styles.icon}
+            src={require('../../assets/mission-first.png')}
+          />
+        );
       case 'Perpetual Growth':
-        return <img className={isMobile ? styles.mobileIcon : styles.icon} src={require('../../assets/perpetual-growth.png')} />;
+        return (
+          <img
+            className={isMobile ? styles.mobileIcon : styles.icon}
+            src={require('../../assets/perpetual-growth.png')}
+          />
+        );
       case 'Cherish Each Other':
-        return <img className={isMobile ? styles.mobileIcon : styles.icon} src={require('../../assets/cherish-each-other.png')} />;
+        return (
+          <img
+            className={isMobile ? styles.mobileIcon : styles.icon}
+            src={require('../../assets/cherish-each-other.png')}
+          />
+        );
       case 'Always Innovate':
-        return <img className={isMobile ? styles.mobileIcon : styles.icon} src={require('../../assets/always-innovate.png')} />;
+        return (
+          <img
+            className={isMobile ? styles.mobileIcon : styles.icon}
+            src={require('../../assets/always-innovate.png')}
+          />
+        );
       case 'Be Humble':
-        return <img className={isMobile ? styles.mobileIcon : styles.icon} src={require('../../assets/be-humble.png')} />;
+        return (
+          <img
+            className={isMobile ? styles.mobileIcon : styles.icon}
+            src={require('../../assets/be-humble.png')}
+          />
+        );
       case 'No Value':
-        return <img className={isMobile ? styles.mobileIcon : styles.icon} src={require('../../assets/no-value.png')} />;
+        return (
+          <img
+            className={isMobile ? styles.mobileIcon : styles.icon}
+            src={require('../../assets/no-value.png')}
+          />
+        );
     }
   };
 
@@ -71,24 +101,41 @@ const AddPaw = (props) => {
         <div className={styles.textLine}>
           <div className={isMobile ? styles.mobileText : styles.text}>Paws up to </div>
           <input
-            className={isMobile ? (nameChanged ? styles.mobileInput : styles.mobileEditedInput) : 
-              (nameChanged ? styles.input : styles.editedInput)}
+            className={`${styles.input}
+              ${
+                isMobile
+                  ? nameChanged
+                    ? styles.mobileInput
+                    : styles.mobileEditedInput
+                  : nameChanged
+                  ? styles.placeholderInput
+                  : styles.editedInput
+              }`}
             id={`name${paw.id}`}
             onChange={(e) => updateName(paw.id, e.target.value)}
-            onClick={() => console.log("click name")}></input>
+            onClick={() => console.log('click name')}></input>
           <div className={isMobile ? styles.mobileText : styles.text}> for </div>
           <input
-            className={isMobile ? (messageChanged ? styles.mobileInput : styles.mobileEditedInput) : 
-              (messageChanged ? styles.input : styles.editedInput)}
+            className={`${styles.input} ${
+              isMobile
+                ? messageChanged
+                  ? styles.mobileInput
+                  : styles.mobileEditedInput
+                : messageChanged
+                ? styles.placeholderInput
+                : styles.editedInput
+            }`}
             id={`message${paw.id}`}
             onChange={(e) => updateMessage(paw.id, e.target.value)}
-            onClick={() => console.log("click message")}></input>
+            onClick={() => console.log('click message')}></input>
         </div>
         <Menu as="div" className={styles.menu}>
           <div>
             <Menu.Button className={styles.menuButton}>
               <img className={styles.caret} src={require('../../assets/caret.png')} />
-              <div className={isMobile ? styles.mobileMenuButtonText : styles.menuButtonText}>{value}</div>
+              <div className={isMobile ? styles.mobileMenuButtonText : styles.menuButtonText}>
+                {value}
+              </div>
               {renderIcon()}
             </Menu.Button>
           </div>
