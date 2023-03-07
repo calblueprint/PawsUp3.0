@@ -69,7 +69,7 @@ const ReadPawsList = () => {
     <>
       <div className={styles.numPawsRow}>
         <img className={styles.pawIcon} src={require('../../assets/paw.png')}></img>
-        <div className={styles.numPaws}>{pawsList.length}</div>
+        <div className={styles.numPaws}>{`${currentIndex + 1}/${pawsList.length}`}</div>
       </div>
       <div className={styles.screen}>
         {currentIndex != 0 && (
