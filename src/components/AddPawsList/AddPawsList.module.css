@@ -36,6 +36,158 @@
     align-items: center;
 }
 
+.overlay {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+    background-color: #000000;
+    opacity: 80%;
+    width: 50%;
+    transition: 1s;
+    transition-timing-function: ease-in-out;
+    z-index: 1;
+    overflow-y: scroll;
+}
+
+.overlayCollapsed {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 0%;
+    background-color: #000000;
+    opacity: 50%;
+    width: 0%;
+    transition: 1s;
+    transition-timing-function: ease-in-out;
+    z-index: 1;
+    overflow-y: hidden;
+}
+
+.memberButtonRow {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: 1s;
+    z-index: 2;
+}
+
+.memberButtonRow:hover {
+    cursor: pointer;
+}
+
+.bars {
+    width: 30px;
+    height: 25px;
+}
+
+.bars:hover {
+    cursor: pointer;
+}
+
+.memberButtonCancel {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    z-index: 2;
+    transition: 1s;
+}
+
+.xmark {
+    width: 20px;
+    height: 20px;
+}
+
+.xmark:hover {
+    cursor: pointer;
+}
+
+.memberList {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    transition: 1.5s ease-in;
+    opacity: 1;
+    z-index: 2;
+    color: white;
+    padding-top: 15%;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-family: 'Cousine', monospace;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 32px;
+}
+
+.memberListHidden {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    transition: .5s;
+    opacity: 1;
+    z-index: 2;
+    color: white;
+    padding-top: 15%;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-family: 'Cousine', monospace;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 32px;
+    opacity: 0;
+}
+
+.clickAName {
+    font-family: 'Cousine';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    font-style: italic;
+}
+
+.teamsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-top: 5%;
+}
+
+.teamList {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+
+.teamName {
+    margin-bottom: 10px;
+}
+
+.memberName {
+    font-family: 'Cousine';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.memberName:hover {
+    cursor: pointer;
+    font-weight: 600;
+    transform: translate(5px, 0);
+}
+
 .mobilePaw {
     width: 25px;
     height: 25px;
