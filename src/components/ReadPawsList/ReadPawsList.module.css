@@ -1,11 +1,10 @@
 .screen {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
 }
 
 .numPawsRow {
@@ -18,8 +17,8 @@
 }
 
 .pawIcon {
-    width: 36px;
-    height: 36px;
+    width: 35px;
+    height: 35px;
     margin-right: 10px;
 }
 
@@ -30,55 +29,9 @@
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 500;
-    font-size: 44px;
-    line-height: 45px;
+    font-size: 42px;
+    line-height: 43px;
     color: #A5A5A5;
-}
-
-.listViewRow {
-    position: absolute;
-    top: 50px;
-    right: 50px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    transition: 1s;
-    z-index: 2;
-}
-
-.listViewRowHidden {
-    position: absolute;
-    top: 50px;
-    right: 50px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    transition: 1s;
-    opacity: 0;
-}
-
-.listViewRow:hover {
-    cursor: pointer;
-}
-
-.bars {
-    margin-right: 5px;
-    margin-top: 5px;
-    width: 30px;
-    height: 25px;
-}
-
-.bars:hover {
-    cursor: pointer;
-}
-
-.arrowbars {
-    width: 40px;
-    height: 40px;
-}
-
-.arrowbars:hover {
-    cursor: pointer;
 }
 
 .container {
@@ -94,37 +47,6 @@
 
 .paw {
     width: 80%;
-}
-
-.listPaw {
-    margin-bottom: 40px;
-}
-
-.listContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 70%;
-    padding-top: 25%;
-    padding-bottom: 20%;
-}
-
-.scrollContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    overflow: scroll;
-}
-
-.listTopPadding {
-    min-height: 50%;
-}
-
-.listBottomPadding {
-    display: block;
-    min-height: 40%;
 }
 
 .animatingPawDown {
@@ -212,28 +134,6 @@
 }
 
 .submitButton:hover {
-    background: #3293ec;
-    cursor: pointer;
-    transform: translate(0, -4px);
-    transition: 0.25s;
-}
-
-.listSubmitButton {
-    background: #0078E8;
-    border-radius: 37px;
-    color: white;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    padding-left: 30px;
-    padding-right: 30px;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 300;
-    font-size: 16px;
-    transition: 0.25s;
-}
-
-.listSubmitButton:hover {
     background: #3293ec;
     cursor: pointer;
     transform: translate(0, -4px);
