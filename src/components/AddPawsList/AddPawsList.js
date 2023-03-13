@@ -185,7 +185,7 @@ const AddPawsList = () => {
               return (
                 <div key={index} className={styles.teamList}>
                   <CopyToClipboard key={index} text={team} >
-                    <div className={styles.teamName}>{team}</div>
+                    <div className={styles.teamName} onClick={()=>{setSnackbarMessage("copied!"), setSnackbarOpen(true)}}>{team}</div>
                   </CopyToClipboard>
                   {getTeamMembers(team).map((memberName, index) => {
                     return (
