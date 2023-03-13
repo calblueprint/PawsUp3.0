@@ -6,6 +6,7 @@ import styles from './AddPawsList.module.css';
 import pawStyles from '../AddPaw/AddPaw.module.css';
 import { getMembers, getPaws, getTeams, submitPaws } from '../../utils/api';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
+import Snackbar from '@mui/material/Snackbar';
 
 const AddPawsList = () => {
   const navigate = useNavigate();
@@ -26,8 +27,8 @@ const AddPawsList = () => {
   const [overlay, setOverlay]= useState(false);
   const [members, setMembers] = useState([]);
   const [teams, setTeams] = useState([]);
-  // const [snackbarOpen, setSnackbarOpen] = useState(false);
-  // const [snackbarMessage, setSnackbarMessage] = useState("");
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState("");
 
   useEffect(() => {
     getPaws().then((paws) => {
@@ -153,16 +154,16 @@ const AddPawsList = () => {
         <img className={isMobile ? styles.mobilePaw : styles.paw} src={require('../../assets/paw.png')}></img>
         <div className={isMobile ? styles.mobileNumPaws : styles.numPaws}>{pawsNum}</div>
       </div>
-      {/* <Snackbar
+      <Snackbar
         style={{
           minWidth: 100
         }}
-        anchorOrigin={{vertical: 'top', horizontal: 'right'}}
+        anchorOrigin={{vertical: 'bottom', horizontal: 'left'}}
         open={snackbarOpen}
         onClose={() => setSnackbarOpen(false)}
         message={snackbarMessage}
         autoHideDuration={1000}
-      /> */}
+      />
       {!overlay && 
         <div className={styles.memberButtonRow} onClick={() => setOverlay(true)}>
           <img src={require('../../assets/bars.png')} className={styles.bars}></img>
@@ -188,7 +189,7 @@ const AddPawsList = () => {
                     return (
                       <CopyToClipboard key={index} text={memberName} >
                         <div className={styles.memberName} 
-                          // onClick={()=>{setSnackbarMessage("copied!"), setSnackbarOpen(true)}}
+                          onClick={()=>{setSnackbarMessage("copied!"), setSnackbarOpen(true)}}
                         >
                           {memberName}
                         </div>
