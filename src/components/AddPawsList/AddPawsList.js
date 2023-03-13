@@ -184,7 +184,9 @@ const AddPawsList = () => {
             {teams.map((team, index) => {
               return (
                 <div key={index} className={styles.teamList}>
-                  <div className={styles.teamName}>{team}</div>
+                  <CopyToClipboard key={index} text={team} >
+                    <div className={styles.teamName}>{team}</div>
+                  </CopyToClipboard>
                   {getTeamMembers(team).map((memberName, index) => {
                     return (
                       <CopyToClipboard key={index} text={memberName} >
