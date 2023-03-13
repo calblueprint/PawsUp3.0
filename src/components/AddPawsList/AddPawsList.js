@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import AddPaw from '../AddPaw/AddPaw';
 import { useNavigate } from 'react-router-dom';
 import SyncLoader from 'react-spinners/SyncLoader';
-
 import styles from './AddPawsList.module.css';
 import pawStyles from '../AddPaw/AddPaw.module.css';
-import { getPaws, submitPaws } from '../../utils/api';
+import { getMembers, getPaws, getTeams, submitPaws } from '../../utils/api';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 const AddPawsList = () => {
   const navigate = useNavigate();
@@ -23,13 +23,35 @@ const AddPawsList = () => {
   const [pawsNum, setPawsNum] = useState(0);
   const [canSubmit, setCanSubmit] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [overlay, setOverlay]= useState(false);
+  const [members, setMembers] = useState([]);
+  const [teams, setTeams] = useState([]);
+  // const [snackbarOpen, setSnackbarOpen] = useState(false);
+  // const [snackbarMessage, setSnackbarMessage] = useState("");
 
   useEffect(() => {
     getPaws().then((paws) => {
       setPawsNum(paws.length);
       setLoading(false);
     });
+    getMembers().then((members) => {
+      setMembers(members);
+      console.log(members);
+    })
+    getTeams().then((teams) => {
+      setTeams(teams);
+    })
   }, []);
+
+  const getTeamMembers = (teamName) => {
+    let newList = [];
+    members.map((member) => {
+      if (member.team == teamName) {
+        newList.push(member.name);
+      }
+    })
+    return newList;
+  }
 
   const addNewPaw = () => {
     let newList = [...pawsList];
@@ -130,6 +152,54 @@ const AddPawsList = () => {
       <div className={isMobile ? styles.mobileNumPawsRow : styles.numPawsRow}>
         <img className={isMobile ? styles.mobilePaw : styles.paw} src={require('../../assets/paw.png')}></img>
         <div className={isMobile ? styles.mobileNumPaws : styles.numPaws}>{pawsNum}</div>
+      </div>
+      {/* <Snackbar
+        style={{
+          minWidth: 100
+        }}
+        anchorOrigin={{vertical: 'top', horizontal: 'right'}}
+        open={snackbarOpen}
+        onClose={() => setSnackbarOpen(false)}
+        message={snackbarMessage}
+        autoHideDuration={1000}
+      /> */}
+      {!overlay && 
+        <div className={styles.memberButtonRow} onClick={() => setOverlay(true)}>
+          <img src={require('../../assets/bars.png')} className={styles.bars}></img>
+        </div>
+      }
+      <div className={overlay ? styles.overlay : styles.overlayCollapsed}>
+        {overlay && 
+          <div className={styles.memberButtonCancel} onClick={() => setOverlay(false)}>
+            <img src={require('../../assets/xmark.png')} className={styles.xmark}></img>
+          </div>
+        }
+        <div className={overlay ? styles.memberList : styles.memberListHidden}> 
+          Active Members
+          <div className={styles.clickAName}>
+            Click a name to copy
+          </div>
+          <div className={styles.teamsContainer}>
+            {teams.map((team, index) => {
+              return (
+                <div key={index} className={styles.teamList}>
+                  <div className={styles.teamName}>{team}</div>
+                  {getTeamMembers(team).map((memberName, index) => {
+                    return (
+                      <CopyToClipboard key={index} text={memberName} >
+                        <div className={styles.memberName} 
+                          // onClick={()=>{setSnackbarMessage("copied!"), setSnackbarOpen(true)}}
+                        >
+                          {memberName}
+                        </div>
+                      </CopyToClipboard>
+                    )
+                  })}
+                </div>
+              )
+            })}
+          </div>
+        </div>
       </div>
       <div className={isMobile ? styles.mobileContainer : styles.container}>
         <div style={{ minHeight: '40%' }}></div>
