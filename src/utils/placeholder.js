@@ -1,14 +1,9 @@
 
 const defaults = [
-    {name: 'jacob', purpose: 'building paws'},
-    {name: 'eloza', purpose: 'slaying'},
-    {name: 'shannon', purpose: 'AAAAAAAA'},
-    {name: 'ceci', purpose: 'hobbler'},
-    {name: 'kelly', purpose: 'canada'},
-    {name: 'jenny', purpose: 'ouchie'},
-    {name: 'jared', purpose: 'factionless'},
-    {name: 'anu', purpose: 'externaling'},
     {name: 'andrew', purpose: 'being korean'},
+    {name: 'sarah', purpose: 'canada'},
+    {name: 'adi', purpose: 'pawar'},
+    {name: 'dylan', purpose: 'being the best'},
 ]
 
 export const getRandomPlaceholder = () => {
