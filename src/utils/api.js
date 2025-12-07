@@ -136,3 +136,39 @@ export const getTeams = () => {
       );
   });
 }
+
+export const getLeaderboardEntries = (() => {
+  return new Promise((resolve, reject) => {
+    const entries = [];
+
+    base('Leaderboard')
+      .select({
+        view: 'Grid view'
+      })
+      .eachPage(
+        function page(records, fetchNextPage) {
+          // This function (`page`) will get called for each page of records.
+          records.forEach(function (record) {
+            entries.push({
+              name: record.get('Member'),
+              total: record.get('Total Paws Count'),
+              mf: record.get('Mission First Count'),
+              pg: record.get('Perpetual Growth Count'),
+              ce: record.get('Cherish Each Other Count'),
+              ai: record.get('Always Innovate Count'),
+              bh: record.get('Be Humble Count'),
+              nv: record.get('No Value Count')
+            });
+          });
+          fetchNextPage();
+        },
+        function done(err) {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(entries);
+          }
+        }
+      );
+  });
+})
