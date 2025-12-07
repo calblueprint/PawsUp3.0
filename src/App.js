@@ -6,6 +6,7 @@ import AddPawsList from './components/AddPawsList/AddPawsList';
 import CycledPaws from './components/CycledPaws/CycledPaws';
 import Secret from './components/Secret/Secret';
 import SubmittedPaws from './components/SubmittedPaws/SubmittedPaws';
+import Leaderboard from './components/Leaderboard/Leaderboard';
 
 function App() {
   return (
@@ -37,6 +38,13 @@ function App() {
           element={
             <div className="screen">
               <CycledPaws />
+            </div>
+          }></Route>
+        <Route
+          path="/leaderboard"
+          element={
+            <div className="screen">
+              <Leaderboard />
             </div>
           }></Route>
       </Routes>
