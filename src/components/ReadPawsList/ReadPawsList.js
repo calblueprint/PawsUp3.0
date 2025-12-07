@@ -36,7 +36,7 @@ const ReadPawsList = () => {
             break;
           case 'ArrowDown':
             setCurrentIndex((newindex) => {
-              console.log(newindex);
+              // console.log(newindex);
               if (newindex + 1 < paws.length) {
                 setAnimateDown(true);
                 return newindex + 1;

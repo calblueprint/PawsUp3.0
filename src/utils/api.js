@@ -6,7 +6,7 @@ const base = new Airtable({ apiKey: process.env.REACT_APP_AIRTABLE_API_KEY }).ba
 
 export const submitPaws = (pawsList) => {
   pawsList.forEach((paw) => {
-    console.log(paw);
+    // console.log(paw);
     base('Paws').create(
       {
         Name: paw.name,

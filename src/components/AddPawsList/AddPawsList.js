@@ -37,7 +37,7 @@ const AddPawsList = () => {
     });
     getMembers().then((members) => {
       setMembers(members);
-      console.log(members);
+      // console.log(members);
     })
     getTeams().then((teams) => {
       setTeams(teams);
