@@ -26,7 +26,7 @@ const Leaderboard = () => {
 
     return (
         <div className={styles.leaderboardContainer}>
-            <h2 className={styles.title}>Paws Leaderboard (FA25 Actives Only)</h2>
+            <h2 className={styles.title}>Paws Leaderboard</h2>
             <div className={styles.tableWrapper}>
                 <table className={styles.leaderboardTable}>
                     <thead>
