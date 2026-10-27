@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
 import ReadPawsList from '../ReadPawsList/ReadPawsList';
+import HalloweenReadPaws from '../../features/halloween/HalloweenReadPaws';
+import { isSecretHalloweenEnabled } from '../../features/halloween/featureFlag';
 
 const Secret = () => {
   const [authenticated, setAuthenticated] = useState(false);
@@ -32,7 +34,7 @@ const Secret = () => {
           Enter
         </div>
       )}
-      {authenticated && <ReadPawsList />}
+      {authenticated && (isSecretHalloweenEnabled() ? <HalloweenReadPaws /> : <ReadPawsList />)}
     </>
   );
 };

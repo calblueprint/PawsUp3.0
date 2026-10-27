@@ -68,3 +68,14 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Halloween Theme
+
+`REACT_APP_SECRET_HALLOWEEN_THEME` controls the theme on `/secret`, after login, in the authenticated paws views. The password screen always uses the normal styling:
+
+- `true`: explicitly enable the theme after login.
+- `false` or unset (default): disable the theme. Any other value, including `auto`, also keeps it disabled.
+
+To preview, add `REACT_APP_SECRET_HALLOWEEN_THEME=true` to `.env.local`.
+Restart the development server after changing it; production flag changes require a rebuild and deployment.
+All seasonal implementation lives in `src/features/halloween/`; see its README for the maintenance guide. Normal components contain no Halloween assets, labels, or animations. The secret route selects the seasonal reader only after login when the flag is active.

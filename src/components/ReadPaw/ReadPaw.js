@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 import styles from './ReadPaw.module.css';
 
 const ReadPaw = (props) => {
-  const { paw } = props;
+  // Optional display-only hooks; normal rendering uses the original values/styles.
+  const { paw, valueLabel, extraContent, classNames = {} } = props;
+  const className = (name) => classNames[name]
+    ? `${styles[name]} ${classNames[name]}`
+    : styles[name];
 
   const renderIcon = () => {
     switch (paw.value) {
@@ -23,15 +27,16 @@ const ReadPaw = (props) => {
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.textLine}>
-        <div className={styles.text}>Paws up to </div>
-        <div className={styles.text}>{paw.name}</div>
-        <div className={styles.text}> for </div>
-        <div className={styles.text}>{paw.purpose}</div>
+    <div className={className('container')}>
+      <div className={className('textLine')}>
+        <div className={className('text')}>Paws up to </div>
+        <div className={className('text')}>{paw.name}</div>
+        <div className={className('text')}> for </div>
+        <div className={className('text')}>{paw.purpose}</div>
       </div>
-      <div className={styles.valueRow}>
-        <div className={styles.value}>{paw.value == undefined ? 'No Value' : paw.value}</div>
+      {extraContent}
+      <div className={className('valueRow')}>
+        <div className={className('value')}>{valueLabel ?? (paw.value == undefined ? 'No Value' : paw.value)}</div>
         {renderIcon()}
       </div>
     </div>
@@ -39,7 +44,10 @@ const ReadPaw = (props) => {
 };
 
 ReadPaw.propTypes = {
-  paw: PropTypes.object
+  paw: PropTypes.object,
+  valueLabel: PropTypes.string,
+  extraContent: PropTypes.node,
+  classNames: PropTypes.object
 };
 
 export default ReadPaw;
