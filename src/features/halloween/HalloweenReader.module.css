@@ -1,0 +1,84 @@
+.numPaws {
+  composes: numPaws from '../../components/ReadPawsList/ReadPawsList.module.css';
+  color: var(--secret-muted, #a5a5a5);
+}
+
+.container {
+  composes: container from '../../components/ReadPawsList/ReadPawsList.module.css';
+  width: 76%;
+  padding: 28px;
+  box-sizing: border-box;
+}
+
+.paw {
+  composes: paw from '../../components/ReadPawsList/ReadPawsList.module.css';
+  width: 100%;
+}
+
+.animatingPawDown {
+  composes: animatingPawDown from '../../components/ReadPawsList/ReadPawsList.module.css';
+  width: 100%;
+}
+
+.animatingPawUp {
+  composes: animatingPawUp from '../../components/ReadPawsList/ReadPawsList.module.css';
+  width: 100%;
+}
+
+.prevPaw {
+  composes: prevPaw from '../../components/ReadPawsList/ReadPawsList.module.css';
+  width: 100%;
+}
+
+.animatingPrevPawDown {
+  composes: animatingPrevPawDown from '../../components/ReadPawsList/ReadPawsList.module.css';
+  width: 100%;
+}
+
+.animatingPrevPawUp {
+  composes: animatingPrevPawUp from '../../components/ReadPawsList/ReadPawsList.module.css';
+  width: 100%;
+}
+
+.submitButton {
+  composes: submitButton from '../../components/ReadPawsList/ReadPawsList.module.css';
+  background: var(--secret-accent, #0078e8);
+  color: var(--secret-button-text, white);
+}
+
+.submitButton:hover {
+  background: var(--secret-accent-hover, #3293ec);
+}
+
+.listSubmitButton {
+  composes: listSubmitButton from '../../components/ReadPawsList/ReadPawsList.module.css';
+  background: var(--secret-accent, #0078e8);
+  color: var(--secret-button-text, white);
+}
+
+.listSubmitButton:hover {
+  background: var(--secret-accent-hover, #3293ec);
+}
+
+.text {
+  composes: text from '../../components/ReadPawsList/ReadPawsList.module.css';
+  color: var(--secret-text, #444444);
+}
+
+.fill {
+  composes: fill from '../../components/ReadPawsList/ReadPawsList.module.css';
+  color: var(--secret-accent, #0078e8);
+  border: 4px var(--secret-accent, #0078e8) solid;
+}
+
+.fill:hover {
+  background-color: var(--secret-accent, #0078e8);
+}
+
+.fill:before {
+  background: var(--secret-accent, #0078e8);
+}
+
+.fill:hover:before {
+  background-color: var(--secret-accent, #0078e8);
+}

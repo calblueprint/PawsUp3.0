@@ -20,5 +20,17 @@
     ],
     "rules": {
         "react/react-in-jsx-scope": "off"
+    },
+    "globals": {
+        "process": "readonly"
+    },
+    "ignorePatterns": [
+        "build/",
+        "coverage/"
+    ],
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
     }
 }

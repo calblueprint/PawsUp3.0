@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { getPaws, updatePaws } from '../../utils/api';
 import SyncLoader from 'react-spinners/SyncLoader';
 import { useNavigate } from 'react-router-dom';
 
 import ReadPaw from '../ReadPaw/ReadPaw';
 
-import styles from './ReadPawsList.module.css';
+import baseStyles from './ReadPawsList.module.css';
 
-const ReadPawsList = () => {
+const ReadPawsList = ({ PawComponent = ReadPaw, onPawChange, classNames = {} }) => {
+  const styles = { ...baseStyles, ...classNames };
   const navigate = useNavigate();
   const [pawsList, setPawsList] = useState([
     { name: 'Jacob', purpose: 'default', value: 'Mission First' }
@@ -17,6 +19,10 @@ const ReadPawsList = () => {
   const [animateUp, setAnimateUp] = useState(false);
   const [loading, setLoading] = useState(true);
   const [listView, setListView] = useState(false);
+
+  useEffect(() => {
+    if (onPawChange) onPawChange(currentIndex + 1);
+  }, [currentIndex, onPawChange]);
 
   useEffect(() => {
     getPaws().then((paws) => {
@@ -105,7 +111,7 @@ const ReadPawsList = () => {
                   ? styles.animatingPrevPawUp
                   : styles.prevPaw
               }>
-              <ReadPaw paw={pawsList[currentIndex - 1]} />
+              <PawComponent paw={pawsList[currentIndex - 1]} />
             </div>
           )}
           {pawsList.length > 0 && (
@@ -121,7 +127,7 @@ const ReadPawsList = () => {
                   ? styles.animatingPawUp
                   : styles.paw
               }>
-              <ReadPaw paw={pawsList[currentIndex]} />
+              <PawComponent paw={pawsList[currentIndex]} />
             </div>
           )}
           {currentIndex == pawsList.length - 1 && (
@@ -148,7 +154,7 @@ const ReadPawsList = () => {
           {pawsList.map((paw, index) => {
             return (
               <div className={styles.listPaw} key={index}>
-                <ReadPaw paw={paw} listPaw={true}/>
+                <PawComponent paw={paw} listPaw={true}/>
               </div>
             )
           })}
@@ -192,6 +198,12 @@ const ReadPawsList = () => {
       </div>
     </>
   );
+};
+
+ReadPawsList.propTypes = {
+  PawComponent: PropTypes.elementType,
+  onPawChange: PropTypes.func,
+  classNames: PropTypes.object
 };
 
 export default ReadPawsList;

@@ -1,0 +1,280 @@
+.halloween {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+  --secret-accent: #ff9b42;
+  --secret-accent-hover: #ffb76b;
+  --secret-button-text: #24152e;
+  --secret-text: #fff0de;
+  --secret-muted: #e4bbf7;
+  color: var(--secret-text);
+  background: radial-gradient(ellipse at 15% 15%, #663021 0, transparent 45%),
+    radial-gradient(ellipse at 90% 85%, #43245e 0, transparent 50%), #1b1426;
+}
+
+/* Decoration stays behind the content and never intercepts controls. */
+.haunting {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 25%, #0009 100%);
+}
+
+.moon {
+  position: absolute;
+  top: 8%;
+  right: 12%;
+  width: clamp(80px, 14vw, 170px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #f9e0ae, #bda580 65%, #75657e);
+  box-shadow: 0 0 70px #d8bc8055;
+  opacity: 0.6;
+}
+
+.bat {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--size);
+  fill: #09070e;
+  filter: drop-shadow(0 0 2px #b0789977);
+  animation: batFlight var(--duration) ease-in-out var(--delay) infinite alternate;
+}
+
+.spider {
+  position: absolute;
+  top: 0;
+  height: 23%;
+  width: 1px;
+  background: #c9b3d477;
+  transform-origin: top;
+  animation: spiderSway 7s ease-in-out infinite alternate;
+}
+
+.spider span {
+  position: absolute;
+  bottom: -24px;
+  left: -19px;
+  font-size: 38px;
+  filter: drop-shadow(0 0 3px #b99cc9);
+}
+
+.eyes {
+  position: absolute;
+  width: 9px;
+  height: 5px;
+  border-radius: 70% 10%;
+  background: #ff573b;
+  box-shadow: 19px 0 #ff573b, 0 0 12px 3px #ff3c3480, 19px 0 12px 3px #ff3c3480;
+  transform: rotate(12deg);
+}
+
+.fog {
+  position: absolute;
+  inset: 60% -30% -15%;
+  background: radial-gradient(ellipse, #b8a0ce26, transparent 65%);
+  filter: blur(24px);
+  animation: fogDrift 18s ease-in-out infinite alternate;
+}
+
+.graveyard {
+  position: absolute;
+  bottom: -8px;
+  width: 100%;
+  text-align: center;
+  font-size: clamp(28px, 6vw, 64px);
+  letter-spacing: 0.5vw;
+  opacity: 0.28;
+  color: #bba9cb;
+  white-space: nowrap;
+}
+
+@keyframes batFlight {
+  0% {
+    transform: translate(-25px, -12px) rotate(-12deg) scaleY(0.75);
+  }
+  50% {
+    transform: translate(30px, 14px) rotate(8deg) scaleY(1);
+  }
+  100% {
+    transform: translate(-10px, 35px) rotate(-6deg) scaleY(0.8);
+  }
+}
+
+@keyframes spiderSway {
+  from {
+    transform: rotate(-8deg);
+  }
+  to {
+    transform: rotate(8deg);
+  }
+}
+
+@keyframes fogDrift {
+  from {
+    transform: translateX(-10%);
+    opacity: 0.4;
+  }
+  to {
+    transform: translateX(10%);
+    opacity: 0.9;
+  }
+}
+
+@media (max-width: 600px) {
+  .bat:nth-of-type(n + 15) {
+    display: none;
+  }
+  .spider {
+    height: 18%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bat,
+  .spider,
+  .fog {
+    animation: none;
+  }
+}
+
+.flyingCharacter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: clamp(55px, 12vw, var(--flight-size, 170px));
+  margin-top: var(--flight-offset, 0vh);
+  pointer-events: none;
+  filter: drop-shadow(0 8px 12px #0007);
+}
+
+.flyingCharacter img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.birdFlight {
+  animation: birdSwoop var(--flight-duration, 22s) linear var(--flight-delay, -5s) infinite;
+}
+
+.birdFlap {
+  animation: birdFlutter 800ms ease-in-out infinite alternate;
+}
+
+.beeFlight {
+  width: clamp(45px, 9vw, var(--flight-size, 125px));
+  animation: beeWander var(--flight-duration, 17s) linear var(--flight-delay, -8s) infinite;
+}
+
+.beeBuzz {
+  animation: beeHover 180ms ease-in-out infinite alternate;
+}
+
+@keyframes birdSwoop {
+  0% {
+    transform: translate(-15vw, 25vh) rotate(-12deg);
+  }
+  20% {
+    transform: translate(25vw, 8vh) rotate(6deg);
+  }
+  40% {
+    transform: translate(65vw, 32vh) rotate(14deg);
+  }
+  50% {
+    transform: translate(110vw, 16vh) rotate(-8deg);
+  }
+  50.01% {
+    transform: translate(110vw, 65vh) scaleX(-1);
+  }
+  70% {
+    transform: translate(65vw, 80vh) scaleX(-1) rotate(-10deg);
+  }
+  90% {
+    transform: translate(15vw, 55vh) scaleX(-1) rotate(12deg);
+  }
+  100% {
+    transform: translate(-15vw, 25vh) scaleX(-1);
+  }
+}
+
+@keyframes birdFlutter {
+  from {
+    transform: translateY(-5px) rotate(-4deg) scaleY(0.94);
+  }
+  to {
+    transform: translateY(5px) rotate(4deg) scaleY(1);
+  }
+}
+
+@keyframes beeWander {
+  0% {
+    transform: translate(110vw, 70vh) scaleX(-1);
+  }
+  15% {
+    transform: translate(78vw, 50vh) scaleX(-1) rotate(15deg);
+  }
+  30% {
+    transform: translate(65vw, 72vh) scaleX(-1) rotate(-12deg);
+  }
+  45% {
+    transform: translate(30vw, 40vh) scaleX(-1) rotate(10deg);
+  }
+  55% {
+    transform: translate(-15vw, 55vh) scaleX(-1);
+  }
+  55.01% {
+    transform: translate(-15vw, 12vh);
+  }
+  70% {
+    transform: translate(22vw, 28vh) rotate(-12deg);
+  }
+  85% {
+    transform: translate(62vw, 10vh) rotate(12deg);
+  }
+  100% {
+    transform: translate(110vw, 70vh);
+  }
+}
+
+@keyframes beeHover {
+  from {
+    transform: translateY(-3px) rotate(-3deg);
+  }
+  to {
+    transform: translateY(3px) rotate(3deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .birdFlight,
+  .birdFlap,
+  .beeFlight,
+  .beeBuzz {
+    animation: none;
+  }
+  .birdFlight {
+    left: 3%;
+    top: 28%;
+  }
+  .beeFlight {
+    left: auto;
+    right: 3%;
+    top: 65%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .birdFlight ~ .birdFlight,
+  .beeFlight ~ .beeFlight {
+    display: none;
+  }
+}
