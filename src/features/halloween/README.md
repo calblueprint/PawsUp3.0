@@ -13,4 +13,4 @@ The only seasonal selection is in `Secret.js`: after login, the flag selects `Ha
 
 `ReadPawsList` accepts an optional `PawComponent` (default: normal `ReadPaw`). `ReadPaw` offers optional `valueLabel`, `extraContent`, and `classNames` presentation slots so seasonal code reuses the same content renderer. Seasonal CSS composes the original reader classes and adds only its own overrides. Shared components keep their original styles and default value behavior; presentation props are optional.
 
-The login screen stays normal. All animations respect reduced motion. Configure `REACT_APP_SECRET_HALLOWEEN_THEME` to `true` to enable it, or `false` to disable it (unset and all other values are also disabled); environment changes require restarting development or rebuilding production.
+The login screen stays normal. All animations respect reduced motion. Configure `REACT_APP_HALLOWEEN_THEME` to `true` to enable it, or `false` to disable it (unset and all other values are also disabled); environment changes require restarting development or rebuilding production.
