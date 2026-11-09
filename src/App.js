@@ -18,35 +18,40 @@ function App() {
             <div className="screen">
               <AddPawsList />
             </div>
-          }></Route>
+          }
+        ></Route>
         <Route
           path="/secret"
           element={
             <div className="screen">
               <Secret />
             </div>
-          }></Route>
+          }
+        ></Route>
         <Route
           path="/submitted"
           element={
             <div className="screen">
               <SubmittedPaws />
             </div>
-          }></Route>
+          }
+        ></Route>
         <Route
           path="/cycled"
           element={
             <div className="screen">
               <CycledPaws />
             </div>
-          }></Route>
+          }
+        ></Route>
         <Route
           path="/leaderboard"
           element={
             <div className="screen">
               <Leaderboard />
             </div>
-          }></Route>
+          }
+        ></Route>
       </Routes>
     </Router>
   );

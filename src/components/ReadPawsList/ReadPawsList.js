@@ -64,7 +64,7 @@ const ReadPawsList = ({ PawComponent = ReadPaw, onPawChange, classNames = {} }) 
   if (pawsList.length == 0) {
     return (
       <div className={styles.screen}>
-        <div className={styles.text}>{"no paws rn :("}</div>
+        <div className={styles.text}>{'no paws rn :('}</div>
         <button className={styles.fill} onClick={() => navigate('/')}>
           Submit More
         </button>
@@ -84,7 +84,8 @@ const ReadPawsList = ({ PawComponent = ReadPaw, onPawChange, classNames = {} }) 
                 setCurrentIndex(currentIndex - 1);
                 setAnimateUp(true);
               }
-            }}>
+            }}
+          >
             <img src={require('../../assets/angle-up.png')} className={styles.caret}></img>
           </div>
         )}
@@ -97,7 +98,8 @@ const ReadPawsList = ({ PawComponent = ReadPaw, onPawChange, classNames = {} }) 
                 setCurrentIndex(currentIndex + 1);
                 setAnimateDown(true);
               }
-            }}>
+            }}
+          >
             <img src={require('../../assets/angle-down.png')} className={styles.caret}></img>
           </div>
         )}
@@ -110,7 +112,8 @@ const ReadPawsList = ({ PawComponent = ReadPaw, onPawChange, classNames = {} }) 
                   : animateUp
                   ? styles.animatingPrevPawUp
                   : styles.prevPaw
-              }>
+              }
+            >
               <PawComponent paw={pawsList[currentIndex - 1]} />
             </div>
           )}
@@ -126,7 +129,8 @@ const ReadPawsList = ({ PawComponent = ReadPaw, onPawChange, classNames = {} }) 
                   : animateUp
                   ? styles.animatingPawUp
                   : styles.paw
-              }>
+              }
+            >
               <PawComponent paw={pawsList[currentIndex]} />
             </div>
           )}
@@ -137,14 +141,15 @@ const ReadPawsList = ({ PawComponent = ReadPaw, onPawChange, classNames = {} }) 
                   navigate('/cycled', { state: { numPaws: pawsList.length } }),
                   setPawsList([]);
               }}
-              className={styles.submitButton}>
+              className={styles.submitButton}
+            >
               Wrap Up Paws Cycle
             </div>
           )}
         </div>
       </>
-    )
-  }
+    );
+  };
 
   const renderListView = () => {
     return (
@@ -154,9 +159,9 @@ const ReadPawsList = ({ PawComponent = ReadPaw, onPawChange, classNames = {} }) 
           {pawsList.map((paw, index) => {
             return (
               <div className={styles.listPaw} key={index}>
-                <PawComponent paw={paw} listPaw={true}/>
+                <PawComponent paw={paw} listPaw={true} />
               </div>
-            )
+            );
           })}
           <div
             onClick={() => {
@@ -164,38 +169,40 @@ const ReadPawsList = ({ PawComponent = ReadPaw, onPawChange, classNames = {} }) 
                 navigate('/cycled', { state: { numPaws: pawsList.length } }),
                 setPawsList([]);
             }}
-            className={styles.listSubmitButton}>
+            className={styles.listSubmitButton}
+          >
             Wrap Up Paws Cycle
           </div>
           {/* <div className={styles.listBottomPadding}></div> */}
         </div>
-        
       </div>
-    )
-  }
+    );
+  };
 
   return (
     <>
       <div className={styles.numPawsRow}>
         <img className={styles.pawIcon} src={require('../../assets/paw.png')}></img>
-        <div className={styles.numPaws}>{!listView ? `${currentIndex + 1}/${pawsList.length}` : pawsList.length}</div>
+        <div className={styles.numPaws}>
+          {!listView ? `${currentIndex + 1}/${pawsList.length}` : pawsList.length}
+        </div>
       </div>
-      {!listView ?
-      <div className={!listView ? styles.listViewRow : styles.listViewRowHidden} onClick={() => setListView(true)}>
-        <img src={require('../../assets/bars.png')} className={styles.bars}></img>
-      </div>
-      :
-      <div className={listView ? styles.listViewRow : styles.listViewRowHidden} onClick={() => setListView(false)}>
-        <img src={require('../../assets/arrowbars.png')} className={styles.arrowbars}></img>
-      </div>
-      } 
-      <div className={styles.screen}>
-        {!listView ?
-          renderArrowListView()
-        :
-          renderListView()
-        }
-      </div>
+      {!listView ? (
+        <div
+          className={!listView ? styles.listViewRow : styles.listViewRowHidden}
+          onClick={() => setListView(true)}
+        >
+          <img src={require('../../assets/bars.png')} className={styles.bars}></img>
+        </div>
+      ) : (
+        <div
+          className={listView ? styles.listViewRow : styles.listViewRowHidden}
+          onClick={() => setListView(false)}
+        >
+          <img src={require('../../assets/arrowbars.png')} className={styles.arrowbars}></img>
+        </div>
+      )}
+      <div className={styles.screen}>{!listView ? renderArrowListView() : renderListView()}</div>
     </>
   );
 };

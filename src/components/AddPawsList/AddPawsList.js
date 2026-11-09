@@ -5,14 +5,14 @@ import SyncLoader from 'react-spinners/SyncLoader';
 import styles from './AddPawsList.module.css';
 import pawStyles from '../AddPaw/AddPaw.module.css';
 import { getMembers, getPaws, getTeams, submitPaws } from '../../utils/api';
-import {CopyToClipboard} from 'react-copy-to-clipboard';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Snackbar from '@mui/material/Snackbar';
 
 const AddPawsList = () => {
   const navigate = useNavigate();
   const width = window.innerWidth;
   const height = window.innerHeight;
-  const isMobile = height/width >= 1
+  const isMobile = height / width >= 1;
   const [pawsList, setPawsList] = useState([
     {
       id: 0,
@@ -24,11 +24,11 @@ const AddPawsList = () => {
   const [pawsNum, setPawsNum] = useState(0);
   const [canSubmit, setCanSubmit] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [overlay, setOverlay]= useState(false);
+  const [overlay, setOverlay] = useState(false);
   const [members, setMembers] = useState([]);
   const [teams, setTeams] = useState([]);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
-  const [snackbarMessage, setSnackbarMessage] = useState("");
+  const [snackbarMessage, setSnackbarMessage] = useState('');
 
   useEffect(() => {
     getPaws().then((paws) => {
@@ -38,10 +38,10 @@ const AddPawsList = () => {
     getMembers().then((members) => {
       setMembers(members);
       // console.log(members);
-    })
+    });
     getTeams().then((teams) => {
       setTeams(teams);
-    })
+    });
   }, []);
 
   const getTeamMembers = (teamName) => {
@@ -50,9 +50,9 @@ const AddPawsList = () => {
       if (member.team == teamName) {
         newList.push(member.name);
       }
-    })
+    });
     return newList;
-  }
+  };
 
   const addNewPaw = () => {
     let newList = [...pawsList];
@@ -151,55 +151,66 @@ const AddPawsList = () => {
   return (
     <>
       <div className={isMobile ? styles.mobileNumPawsRow : styles.numPawsRow}>
-        <img className={isMobile ? styles.mobilePaw : styles.paw} src={require('../../assets/paw.png')}></img>
+        <img
+          className={isMobile ? styles.mobilePaw : styles.paw}
+          src={require('../../assets/paw.png')}
+        ></img>
         <div className={isMobile ? styles.mobileNumPaws : styles.numPaws}>{pawsNum}</div>
       </div>
       <Snackbar
         style={{
           minWidth: 100
         }}
-        anchorOrigin={{vertical: 'bottom', horizontal: 'left'}}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
         open={snackbarOpen}
         onClose={() => setSnackbarOpen(false)}
         message={snackbarMessage}
         autoHideDuration={1000}
       />
-      {!overlay && 
+      {!overlay && (
         <div className={styles.memberButtonRow} onClick={() => setOverlay(true)}>
           <img src={require('../../assets/bars.png')} className={styles.bars}></img>
         </div>
-      }
+      )}
       <div className={overlay ? styles.overlay : styles.overlayCollapsed}>
-        {overlay && 
+        {overlay && (
           <div className={styles.memberButtonCancel} onClick={() => setOverlay(false)}>
             <img src={require('../../assets/xmark.png')} className={styles.xmark}></img>
           </div>
-        }
-        <div className={overlay ? styles.memberList : styles.memberListHidden}> 
+        )}
+        <div className={overlay ? styles.memberList : styles.memberListHidden}>
           Active Members
-          <div className={styles.clickAName}>
-            Click a name to copy
-          </div>
+          <div className={styles.clickAName}>Click a name to copy</div>
           <div className={styles.teamsContainer}>
             {teams.map((team, index) => {
               return (
                 <div key={index} className={styles.teamList}>
-                  <CopyToClipboard key={index} text={team} >
-                    <div className={styles.teamName} onClick={()=>{setSnackbarMessage("copied!"), setSnackbarOpen(true)}}>{team}</div>
+                  <CopyToClipboard key={index} text={team}>
+                    <div
+                      className={styles.teamName}
+                      onClick={() => {
+                        setSnackbarMessage('copied!'), setSnackbarOpen(true);
+                      }}
+                    >
+                      {team}
+                    </div>
                   </CopyToClipboard>
                   {getTeamMembers(team).map((memberName, index) => {
                     return (
-                      <CopyToClipboard key={index} text={memberName} >
-                        <div className={styles.memberName} 
-                          onClick={()=>{setSnackbarMessage("copied!"), setSnackbarOpen(true)}}
+                      <CopyToClipboard key={index} text={memberName}>
+                        <div
+                          className={styles.memberName}
+                          onClick={() => {
+                            setSnackbarMessage('copied!'), setSnackbarOpen(true);
+                          }}
                         >
                           {memberName}
                         </div>
                       </CopyToClipboard>
-                    )
+                    );
                   })}
                 </div>
-              )
+              );
             })}
           </div>
         </div>
@@ -237,7 +248,8 @@ const AddPawsList = () => {
             state: { numPaws: pawsList.length, totalPaws: pawsNum + pawsList.length }
           }),
             submit();
-        }}>
+        }}
+      >
         Submit {pawsList.length} Paw{pawsList.length > 1 && 's'}
       </button>
     </>
