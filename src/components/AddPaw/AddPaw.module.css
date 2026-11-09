@@ -1,338 +1,338 @@
 .container {
-    margin-top: 90px;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
+  margin-top: 90px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
 }
 
 .mobileRemoveBox {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
 }
 
 .removeBox {
-    width: 50px;
+  width: 50px;
 }
 
 .mobileRemoveIcon {
-    margin-top: 5px;
-    margin-right: 5px;
-    width: 25px;
-    height: 25px;
+  margin-top: 5px;
+  margin-right: 5px;
+  width: 25px;
+  height: 25px;
 }
 
 .removeIcon {
-    margin-top: 10px;
-    width: 30px;
-    height: 30px;
+  margin-top: 10px;
+  width: 30px;
+  height: 30px;
 }
 
 .removeIcon:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .pawColumn {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .textLine {
-    flex-direction: row;
-    width: 80%;
+  flex-direction: row;
+  width: 80%;
 }
 
 .input {
-    border: none;
-    border-bottom: solid 2px;
-    outline: none; 
-    font-family: 'Cousine', monospace;
-    font-style: normal;
-    font-weight: 500;
+  border: none;
+  border-bottom: solid 2px;
+  outline: none;
+  font-family: 'Cousine', monospace;
+  font-style: normal;
+  font-weight: 500;
 }
 
 .mobileInput {
-    font-size: 24px;
-    color: #444444;
+  font-size: 24px;
+  color: #444444;
 }
 
 .mobileEditedInput {
-    font-size: 24px;
-    color: #A5A5A5;
-    transition: 0.25s;
+  font-size: 24px;
+  color: #a5a5a5;
+  transition: 0.25s;
 }
 
 .placeholderInput {
-    font-size: 48px;
-    color: #444444;
+  font-size: 48px;
+  color: #444444;
 }
 
 .editedInput {
-    font-size: 48px;
-    color: #A5A5A5;
-    transition: 0.25s;
+  font-size: 48px;
+  color: #a5a5a5;
+  transition: 0.25s;
 }
 
 .editedInput:hover {
-    color: #444444;
-    transform: translate(0, -4px);
-    transition: 0.25s;
+  color: #444444;
+  transform: translate(0, -4px);
+  transition: 0.25s;
 }
 
 .mobileText {
-    display: inline;
-    font-family: 'Cousine', monospace;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 37px;
-    color: #444444;
+  display: inline;
+  font-family: 'Cousine', monospace;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 37px;
+  color: #444444;
 }
 
 .text {
-    display: inline;
-    font-family: 'Cousine', monospace;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 48px;
-    line-height: 49px;
-    color: #444444;
+  display: inline;
+  font-family: 'Cousine', monospace;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 49px;
+  color: #444444;
 }
 
 .textSelectable {
-    display: inline;
-    font-family: 'Cousine', monospace;
-    font-style: normal;
-    text-decoration: underline;
-    font-weight: 500;
-    font-size: 48px;
-    color: #A5A5A5;
-    min-width: 20px;
+  display: inline;
+  font-family: 'Cousine', monospace;
+  font-style: normal;
+  text-decoration: underline;
+  font-weight: 500;
+  font-size: 48px;
+  color: #a5a5a5;
+  min-width: 20px;
 }
 
 .textSelectableChanged {
-    display: inline;
-    font-family: 'Cousine', monospace;
-    font-style: normal;
-    text-decoration: underline;
-    font-weight: 500;
-    font-size: 48px;
-    color: black;
-    min-width: 20px;
+  display: inline;
+  font-family: 'Cousine', monospace;
+  font-style: normal;
+  text-decoration: underline;
+  font-weight: 500;
+  font-size: 48px;
+  color: black;
+  min-width: 20px;
 }
 
 [contenteditable] {
-    outline: 0px solid transparent;
+  outline: 0px solid transparent;
 }
 
 .dropdown {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    margin-top: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
 }
 
 .button {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .addPaw {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .menu {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .menuButton {
-    background: none;
-    border: none;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    padding-left: 0px;
-    opacity: 0.8;
-    transition: 0.25s;
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  padding-left: 0px;
+  opacity: 0.8;
+  transition: 0.25s;
 }
 
 .menuButton:hover {
-    opacity: 1;
-    transform: translate(5px, 0);
-    transition: 0.25s;
-    cursor: pointer;
+  opacity: 1;
+  transform: translate(5px, 0);
+  transition: 0.25s;
+  cursor: pointer;
 }
 
 .caret {
-    width: 15px;
-    height: 15px;
-    margin-right: 10px;
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
 }
 
 .mobileMenuButtonText {
-    display: inline;
-    font-family: 'Proxima Nova';
-    font-style: normal;
-    font-weight: 200;
-    font-size: 18px;
-    color: #444444;
+  display: inline;
+  font-family: 'Proxima Nova';
+  font-style: normal;
+  font-weight: 200;
+  font-size: 18px;
+  color: #444444;
 }
 
 .menuButtonText {
-    display: inline;
-    font-family: 'Proxima Nova';
-    font-style: normal;
-    font-weight: 200;
-    font-size: 24px;
-    color: #444444;
+  display: inline;
+  font-family: 'Proxima Nova';
+  font-style: normal;
+  font-weight: 200;
+  font-size: 24px;
+  color: #444444;
 }
 
 .mobileIcon {
-    width: 20px;
-    height: 20px;
-    margin-left: 10px;
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
 }
 
 .icon {
-    width: 25px;
-    height: 25px;
-    margin-left: 10px;
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
 }
 
 .mobileMenuList {
-    position: absolute;
-    display: flex;
-    filter: drop-shadow(2px 2px 6px rgba(165, 165, 165, 0.5));
-    flex-direction: column;
-    align-items: flex-start;
-    margin-left: 10px;
-    width: 50%;
+  position: absolute;
+  display: flex;
+  filter: drop-shadow(2px 2px 6px rgba(165, 165, 165, 0.5));
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 10px;
+  width: 50%;
 }
 
 .menuList {
-    position: absolute;
-    display: flex;
-    filter: drop-shadow(2px 2px 6px rgba(165, 165, 165, 0.5));
-    flex-direction: column;
-    align-items: flex-start;
-    margin-left: 10px;
-    width: 20%;
+  position: absolute;
+  display: flex;
+  filter: drop-shadow(2px 2px 6px rgba(165, 165, 165, 0.5));
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 10px;
+  width: 20%;
 }
 
 .activeTopMenuOption {
-    width: 100%;
-    background-color: #A5A5A5;
-    border: none;
-    border-top: 1px solid #A5A5A5;
-    border-left: 1px solid #A5A5A5;
-    text-align: left;
-    padding-top: 7px;
-    padding-bottom: 7px;
-    padding-left: 10px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    font-family: 'Proxima Nova';
-    font-style: normal;
-    font-weight: 200;
-    font-size: 16px;
-    color: #444444;
-    cursor: pointer;
+  width: 100%;
+  background-color: #a5a5a5;
+  border: none;
+  border-top: 1px solid #a5a5a5;
+  border-left: 1px solid #a5a5a5;
+  text-align: left;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-family: 'Proxima Nova';
+  font-style: normal;
+  font-weight: 200;
+  font-size: 16px;
+  color: #444444;
+  cursor: pointer;
 }
 
 .activeMenuOption {
-    width: 100%;
-    background-color: #A5A5A5;
-    border: none;
-    border-left: 1px solid #A5A5A5;
-    text-align: left;
-    padding-top: 7px;
-    padding-bottom: 7px;
-    padding-left: 10px;
-    font-family: 'Proxima Nova';
-    font-style: normal;
-    font-weight: 200;
-    font-size: 16px;
-    color: #444444;
-    cursor: pointer;
+  width: 100%;
+  background-color: #a5a5a5;
+  border: none;
+  border-left: 1px solid #a5a5a5;
+  text-align: left;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 10px;
+  font-family: 'Proxima Nova';
+  font-style: normal;
+  font-weight: 200;
+  font-size: 16px;
+  color: #444444;
+  cursor: pointer;
 }
 
 .activeBottomMenuOption {
-    width: 100%;
-    background-color: #A5A5A5;
-    border: none;
-    border-left: 1px solid #A5A5A5;
-    text-align: left;
-    padding-top: 7px;
-    padding-bottom: 7px;
-    padding-left: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    font-family: 'Proxima Nova';
-    font-style: normal;
-    font-weight: 200;
-    font-size: 16px;
-    color: #444444;
-    cursor: pointer;
+  width: 100%;
+  background-color: #a5a5a5;
+  border: none;
+  border-left: 1px solid #a5a5a5;
+  text-align: left;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  font-family: 'Proxima Nova';
+  font-style: normal;
+  font-weight: 200;
+  font-size: 16px;
+  color: #444444;
+  cursor: pointer;
 }
 
-.topMenuOption{
-    width: 100%;
-    background: white;
-    border: none;
-    border-top: 1px solid #A5A5A5;
-    border-left: 1px solid #A5A5A5;
-    border-right: 1px solid #A5A5A5;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    text-align: left;
-    padding-top: 7px;
-    padding-bottom: 7px;
-    padding-left: 10px;
-    font-family: 'Proxima Nova';
-    font-style: normal;
-    font-weight: 200;
-    font-size: 16px;
-    color: #444444;
+.topMenuOption {
+  width: 100%;
+  background: white;
+  border: none;
+  border-top: 1px solid #a5a5a5;
+  border-left: 1px solid #a5a5a5;
+  border-right: 1px solid #a5a5a5;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  text-align: left;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 10px;
+  font-family: 'Proxima Nova';
+  font-style: normal;
+  font-weight: 200;
+  font-size: 16px;
+  color: #444444;
 }
 
-.bottomMenuOption {
-    width: 100%;
-    background: white;
-    border: none;
-    border-bottom: 1px solid #A5A5A5;
-    border-left: 1px solid #A5A5A5;
-    border-right: 1px solid #A5A5A5;
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
-    text-align: left;
-    padding-top: 7px;
-    padding-bottom: 7px;
-    padding-left: 10px;
-    font-family: 'Proxima Nova';
-    font-style: normal;
-    font-weight: 200;
-    font-size: 16px;
-    color: #444444;
+.lastMenuOption {
+  width: 100%;
+  background: white;
+  border: none;
+  border-bottom: 1px solid #a5a5a5;
+  border-left: 1px solid #a5a5a5;
+  border-right: 1px solid #a5a5a5;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  text-align: left;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 10px;
+  font-family: 'Proxima Nova';
+  font-style: normal;
+  font-weight: 200;
+  font-size: 16px;
+  color: #444444;
 }
 
 .menuOption {
-    width: 100%;
-    background: white;
-    border: none;
-    border-right: 1px solid #A5A5A5;
-    border-left: 1px solid #A5A5A5;
-    text-align: left;
-    padding-top: 7px;
-    padding-bottom: 7px;
-    padding-left: 10px;
-    font-family: 'Proxima Nova';
-    font-style: normal;
-    font-weight: 200;
-    font-size: 16px;
-    color: #444444;
+  width: 100%;
+  background: white;
+  border: none;
+  border-right: 1px solid #a5a5a5;
+  border-left: 1px solid #a5a5a5;
+  text-align: left;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 10px;
+  font-family: 'Proxima Nova';
+  font-style: normal;
+  font-weight: 200;
+  font-size: 16px;
+  color: #444444;
 }

@@ -108,7 +108,7 @@ export const getMembers = () => {
         }
       );
   });
-}
+};
 
 export const getTeams = () => {
   return new Promise((resolve, reject) => {
@@ -135,9 +135,9 @@ export const getTeams = () => {
         }
       );
   });
-}
+};
 
-export const getLeaderboardEntries = (() => {
+export const getLeaderboardEntries = () => {
   return new Promise((resolve, reject) => {
     const entries = [];
 
@@ -171,4 +171,4 @@ export const getLeaderboardEntries = (() => {
         }
       );
   });
-})
+};

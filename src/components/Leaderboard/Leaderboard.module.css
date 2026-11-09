@@ -32,7 +32,7 @@
 }
 
 .leaderboardTable thead {
-  background-color: #0078E8;
+  background-color: #0078e8;
   color: white;
   position: sticky;
   top: 0;
@@ -44,9 +44,9 @@
   text-align: left;
   font-weight: 600;
   text-transform: uppercase;
-  font-size: 0.80rem;
+  font-size: 0.8rem;
   letter-spacing: 0.5px;
-  background-color: #0078E8;
+  background-color: #0078e8;
 }
 
 .leaderboardTable td {
@@ -88,7 +88,7 @@
 .totalCell {
   text-align: center;
   font-weight: 700;
-  color: #0078E8;
+  color: #0078e8;
   font-size: 1.1rem;
 }
 
@@ -115,20 +115,20 @@
   .leaderboardContainer {
     padding: 1rem;
   }
-  
+
   .title {
     font-size: 1.5rem;
   }
-  
+
   .leaderboardTable {
     font-size: 0.85rem;
   }
-  
+
   .leaderboardTable th,
   .leaderboardTable td {
     padding: 0.625rem 0.5rem;
   }
-  
+
   .totalCell {
     font-size: 1rem;
   }

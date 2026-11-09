@@ -5,9 +5,8 @@ import styles from './ReadPaw.module.css';
 const ReadPaw = (props) => {
   // Optional display-only hooks; normal rendering uses the original values/styles.
   const { paw, valueLabel, extraContent, classNames = {} } = props;
-  const className = (name) => classNames[name]
-    ? `${styles[name]} ${classNames[name]}`
-    : styles[name];
+  const className = (name) =>
+    classNames[name] ? `${styles[name]} ${classNames[name]}` : styles[name];
 
   const renderIcon = () => {
     switch (paw.value) {
@@ -36,7 +35,9 @@ const ReadPaw = (props) => {
       </div>
       {extraContent}
       <div className={className('valueRow')}>
-        <div className={className('value')}>{valueLabel ?? (paw.value == undefined ? 'No Value' : paw.value)}</div>
+        <div className={className('value')}>
+          {valueLabel ?? (paw.value == undefined ? 'No Value' : paw.value)}
+        </div>
         {renderIcon()}
       </div>
     </div>

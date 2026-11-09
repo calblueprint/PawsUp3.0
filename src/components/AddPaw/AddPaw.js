@@ -94,7 +94,8 @@ const AddPaw = (props) => {
           <img
             src={require('../../assets/remove.png')}
             className={isMobile ? styles.mobileRemoveIcon : styles.removeIcon}
-            onClick={() => deletePaw(paw.id)}></img>
+            onClick={() => deletePaw(paw.id)}
+          ></img>
         )}
       </div>
       <div className={styles.pawColumn}>
@@ -113,7 +114,8 @@ const AddPaw = (props) => {
               }`}
             id={`name${paw.id}`}
             onChange={(e) => updateName(paw.id, e.target.value)}
-            onClick={() => console.log('click name')}></input>
+            onClick={() => console.log('click name')}
+          ></input>
           <div className={isMobile ? styles.mobileText : styles.text}> for </div>
           <input
             className={`${styles.input} ${
@@ -127,7 +129,8 @@ const AddPaw = (props) => {
             }`}
             id={`message${paw.id}`}
             onChange={(e) => updateMessage(paw.id, e.target.value)}
-            onClick={() => console.log('click message')}></input>
+            onClick={() => console.log('click message')}
+          ></input>
         </div>
         <Menu as="div" className={styles.menu}>
           <div>
@@ -146,7 +149,8 @@ const AddPaw = (props) => {
             enterTo="transform opacity-100 scale-100"
             leave="transition ease-in duration-75"
             leaveFrom="transform opacity-100 scale-100"
-            leaveTo="transform opacity-0 scale-95">
+            leaveTo="transform opacity-0 scale-95"
+          >
             <Menu.Items className={isMobile ? styles.mobileMenuList : styles.menuList}>
               <Menu.Item>
                 {({ active }) => (
@@ -154,7 +158,8 @@ const AddPaw = (props) => {
                     className={active ? styles.activeTopMenuOption : styles.topMenuOption}
                     onClick={() => {
                       setValue('Mission First'), updateValue(paw.id, 'Mission First');
-                    }}>
+                    }}
+                  >
                     Mission First
                   </button>
                 )}
@@ -165,7 +170,8 @@ const AddPaw = (props) => {
                     className={active ? styles.activeMenuOption : styles.menuOption}
                     onClick={() => {
                       setValue('Perpetual Growth'), updateValue(paw.id, 'Perpetual Growth');
-                    }}>
+                    }}
+                  >
                     Perpetual Growth
                   </button>
                 )}
@@ -176,7 +182,8 @@ const AddPaw = (props) => {
                     className={active ? styles.activeMenuOption : styles.menuOption}
                     onClick={() => {
                       setValue('Cherish Each Other'), updateValue(paw.id, 'Cherish Each Other');
-                    }}>
+                    }}
+                  >
                     Cherish Each Other
                   </button>
                 )}
@@ -187,7 +194,8 @@ const AddPaw = (props) => {
                     className={active ? styles.activeMenuOption : styles.menuOption}
                     onClick={() => {
                       setValue('Always Innovate'), updateValue(paw.id, 'Always Innovate');
-                    }}>
+                    }}
+                  >
                     Always Innovate
                   </button>
                 )}
@@ -195,10 +203,11 @@ const AddPaw = (props) => {
               <Menu.Item>
                 {({ active }) => (
                   <button
-                    className={active ? styles.activeBottomMenuOption : styles.bottomMenuOption}
+                    className={active ? styles.activeBottomMenuOption : styles.lastMenuOption}
                     onClick={() => {
                       setValue('Be Humble'), updateValue(paw.id, 'Be Humble');
-                    }}>
+                    }}
+                  >
                     Be Humble
                   </button>
                 )}
